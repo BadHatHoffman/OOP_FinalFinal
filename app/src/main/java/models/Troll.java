@@ -2,6 +2,13 @@ package models;
 
 public class Troll extends Enemy {
 
+    public Troll(){
+        super.setHealth(30);
+        super.setAttackPower(10);
+        super.setAttackSpeed(40);
+        super.setDefense(20);
+    }
+
     public Troll(int health, int attackPower, int attackSpeed, int defense){
         setHealth(health);
         setAttackPower(attackPower);

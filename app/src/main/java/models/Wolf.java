@@ -2,6 +2,13 @@ package models;
 
 public class Wolf extends Hero {
 
+    public Wolf(){
+        super.setHealth(150);
+        super.setAttackPower(10);
+        super.setAttackSpeed(20);
+        super.setDefense(80);
+    }
+
     public Wolf(int health, int attackPower, int attackSpeed, int defense, int exp){
         setHealth(health);
         setAttackPower(attackPower);

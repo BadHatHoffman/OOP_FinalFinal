@@ -2,6 +2,13 @@ package models;
 
 public class Human extends Hero{
 
+    public Human(){
+        super.setHealth(120);
+        super.setAttackPower(15);
+        super.setAttackSpeed(40);
+        super.setDefense(65);
+    }
+
     public Human(int health, int attackPower, int attackSpeed, int defense, int exp){
         setHealth(health);
         setAttackPower(attackPower);

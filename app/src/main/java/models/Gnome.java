@@ -2,6 +2,13 @@ package models;
 
 public class Gnome extends Enemy {
 
+    public Gnome(){
+        super.setHealth(20);
+        super.setAttackPower(5);
+        super.setAttackSpeed(60);
+        super.setDefense(10);
+    }
+
     public Gnome(int health, int attackPower, int attackSpeed, int defense){
         setHealth(health);
         setAttackPower(attackPower);
