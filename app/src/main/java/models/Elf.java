@@ -11,28 +11,33 @@ public class Elf extends Hero {
     }
 
     @Override
-    public int getHealth() {
-        return super.getHealth();
+    public void setExp(int exp) {
+        super.setExp(exp);
     }
 
     @Override
-    public int getAttackPower() {
-        return super.getAttackPower();
+    public void setHealth(int health) {
+        super.setHealth(health);
     }
 
     @Override
-    public int getAttackSpeed() {
-        return super.getAttackSpeed();
+    public void setAttackPower(int attackPower) {
+        super.setAttackPower(attackPower);
     }
 
     @Override
-    public int getDefense() {
-        return super.getDefense();
+    public void setAttackSpeed(int attackSpeed) {
+        super.setAttackSpeed(attackSpeed);
     }
 
     @Override
-    public int getExp() {
-        return super.getExp();
+    public void setDefense(int defense) {
+        super.setDefense(defense);
+    }
+
+    @Override
+    public void setLevel(int level) {
+        super.setLevel(level);
     }
 
     @Override

@@ -7,6 +7,7 @@ public abstract class Character {
     protected int attackPower;
     protected int attackSpeed;
     protected int defense;
+    protected int level;
     public Random rng = new Random();
 
 
@@ -40,6 +41,14 @@ public abstract class Character {
 
     public void setDefense(int defense) {
         this.defense = defense;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public int roll(int quantity, int sides){

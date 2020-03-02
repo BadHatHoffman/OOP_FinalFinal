@@ -1,6 +1,6 @@
 package models;
 
-public class Ogre extends Character{
+public class Ogre extends Enemy {
 
     public Ogre(int health, int attackPower, int attackSpeed, int defense){
         setHealth(health);
@@ -10,23 +10,28 @@ public class Ogre extends Character{
     }
 
     @Override
-    public int getHealth() {
-        return super.getHealth();
+    public void setHealth(int health) {
+        super.setHealth(health);
     }
 
     @Override
-    public int getAttackPower() {
-        return super.getAttackPower();
+    public void setAttackPower(int attackPower) {
+        super.setAttackPower(attackPower);
     }
 
     @Override
-    public int getAttackSpeed() {
-        return super.getAttackSpeed();
+    public void setAttackSpeed(int attackSpeed) {
+        super.setAttackSpeed(attackSpeed);
     }
 
     @Override
-    public int getDefense() {
-        return super.getDefense();
+    public void setDefense(int defense) {
+        super.setDefense(defense);
+    }
+
+    @Override
+    public void setLevel(int level) {
+        super.setLevel(level);
     }
 
     @Override
