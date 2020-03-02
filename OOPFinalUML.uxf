@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>4</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>788</x>
-      <y>68</y>
-      <w>104</w>
-      <h>72</h>
+      <x>700</x>
+      <y>0</y>
+      <w>182</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>MainActivity
 --
@@ -25,10 +25,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>976</x>
-      <y>336</y>
-      <w>120</w>
-      <h>40</h>
+      <x>1029</x>
+      <y>469</y>
+      <w>210</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Dungeon
 --
@@ -40,10 +40,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>224</y>
-      <w>140</w>
-      <h>76</h>
+      <x>273</x>
+      <y>273</y>
+      <w>245</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>DungeonMenu
 --
@@ -62,10 +62,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>956</x>
-      <y>224</y>
-      <w>140</w>
-      <h>72</h>
+      <x>994</x>
+      <y>273</y>
+      <w>245</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>OpeningScreen
 --
@@ -81,10 +81,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>764</x>
-      <y>224</y>
-      <w>140</w>
-      <h>76</h>
+      <x>658</x>
+      <y>273</y>
+      <w>245</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>CharacterMenu
 --
@@ -100,10 +100,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>756</x>
-      <y>444</y>
-      <w>152</w>
-      <h>136</h>
+      <x>644</x>
+      <y>658</y>
+      <w>266</w>
+      <h>238</h>
     </coordinates>
     <panel_attributes>/RPGCharacter/
 &lt;&lt;abstract&gt;&gt;
@@ -136,10 +136,10 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>844</x>
-      <y>736</y>
-      <w>324</w>
-      <h>76</h>
+      <x>798</x>
+      <y>1169</y>
+      <w>567</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Human
 --
@@ -160,20 +160,20 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>852</y>
-      <w>284</w>
-      <h>64</h>
+      <x>273</x>
+      <y>1372</y>
+      <w>497</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Orc
 --
 
 --
 + Orc(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ getHealth() : int &lt;&lt;override&gt;&gt;
-+ getAttackPower() : int &lt;&lt;override&gt;&gt;
-+ getAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ getDefense() : int &lt;&lt;override&gt;&gt;
++ setHealth() : int &lt;&lt;override&gt;&gt;
++ setAttackPower() : int &lt;&lt;override&gt;&gt;
++ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
++ setDefense() : int &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -182,20 +182,20 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>648</y>
-      <w>284</w>
-      <h>64</h>
+      <x>273</x>
+      <y>1015</y>
+      <w>497</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Gnome
 --
 
 --
 + Gnome(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ getHealth() : int &lt;&lt;override&gt;&gt;
-+ getAttackPower() : int &lt;&lt;override&gt;&gt;
-+ getAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ getDefense() : int &lt;&lt;override&gt;&gt;
++ setHealth() : int &lt;&lt;override&gt;&gt;
++ setAttackPower() : int &lt;&lt;override&gt;&gt;
++ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
++ setDefense() : int &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -204,10 +204,10 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>844</x>
-      <y>648</y>
-      <w>324</w>
-      <h>76</h>
+      <x>798</x>
+      <y>1015</y>
+      <w>567</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Wolf
 --
@@ -228,10 +228,10 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>844</x>
-      <y>816</y>
-      <w>324</w>
-      <h>80</h>
+      <x>798</x>
+      <y>1309</y>
+      <w>567</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>Elf
 --
@@ -252,10 +252,10 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1040</x>
-      <y>580</y>
-      <w>116</w>
-      <h>60</h>
+      <x>1141</x>
+      <y>896</y>
+      <w>203</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>/Hero/
 &lt;&lt;abstract&gt;&gt;
@@ -272,10 +272,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>904</x>
-      <y>496</y>
-      <w>144</w>
-      <h>92</h>
+      <x>903</x>
+      <y>749</y>
+      <w>252</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;340.0;10.0;340.0;210.0</additional_attributes>
@@ -283,10 +283,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>612</x>
-      <y>496</y>
-      <w>152</w>
-      <h>84</h>
+      <x>392</x>
+      <y>749</y>
+      <w>266</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>360.0;10.0;10.0;10.0;10.0;190.0</additional_attributes>
@@ -294,10 +294,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1152</x>
-      <y>600</y>
-      <w>36</w>
-      <h>12</h>
+      <x>1337</x>
+      <y>931</y>
+      <w>63</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
@@ -305,10 +305,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1176</x>
-      <y>600</y>
-      <w>12</w>
-      <h>252</h>
+      <x>1379</x>
+      <y>931</y>
+      <w>21</w>
+      <h>441</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;610.0;10.0;10.0</additional_attributes>
@@ -316,10 +316,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1164</x>
-      <y>836</y>
-      <w>24</w>
-      <h>16</h>
+      <x>1358</x>
+      <y>1344</y>
+      <w>42</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
@@ -327,10 +327,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1164</x>
-      <y>756</y>
-      <w>24</w>
-      <h>16</h>
+      <x>1358</x>
+      <y>1204</y>
+      <w>42</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
@@ -338,10 +338,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1164</x>
-      <y>668</y>
-      <w>24</w>
-      <h>16</h>
+      <x>1358</x>
+      <y>1050</y>
+      <w>42</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
@@ -349,20 +349,20 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>716</y>
-      <w>284</w>
-      <h>64</h>
+      <x>273</x>
+      <y>1134</y>
+      <w>497</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Troll
 --
 
 --
 + Troll(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ getHealth() : int &lt;&lt;override&gt;&gt;
-+ getAttackPower() : int &lt;&lt;override&gt;&gt;
-+ getAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ getDefense() : int &lt;&lt;override&gt;&gt;
++ setHealth() : int &lt;&lt;override&gt;&gt;
++ setAttackPower() : int &lt;&lt;override&gt;&gt;
++ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
++ setDefense() : int &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -371,20 +371,20 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>784</y>
-      <w>284</w>
-      <h>64</h>
+      <x>273</x>
+      <y>1253</y>
+      <w>497</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Ogre
 --
 
 --
 + Ogre(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ getHealth() : int &lt;&lt;override&gt;&gt;
-+ getAttackPower() : int &lt;&lt;override&gt;&gt;
-+ getAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ getDefense() : int &lt;&lt;override&gt;&gt;
++ setHealth() : int &lt;&lt;override&gt;&gt;
++ setAttackPower() : int &lt;&lt;override&gt;&gt;
++ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
++ setDefense() : int &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -393,20 +393,20 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>920</y>
-      <w>284</w>
-      <h>72</h>
+      <x>273</x>
+      <y>1491</y>
+      <w>497</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Dragon
 --
 + damageModifier : int
 --
 + Dragon(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ getHealth() : int &lt;&lt;override&gt;&gt;
-+ getAttackPower() : int &lt;&lt;override&gt;&gt;
-+ getAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ getDefense() : int &lt;&lt;override&gt;&gt;
++ setHealth() : int &lt;&lt;override&gt;&gt;
++ setAttackPower() : int &lt;&lt;override&gt;&gt;
++ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
++ setDefense() : int &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 + getDamageModifier() : int
 + setDamageModifier(damageModifier : int) : void
@@ -417,10 +417,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>588</y>
-      <w>12</w>
-      <h>292</h>
+      <x>224</x>
+      <y>910</y>
+      <w>21</w>
+      <h>511</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;710.0;10.0;10.0</additional_attributes>
@@ -428,10 +428,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>868</y>
-      <w>36</w>
-      <h>16</h>
+      <x>224</x>
+      <y>1400</y>
+      <w>63</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
@@ -439,10 +439,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>800</y>
-      <w>36</w>
-      <h>16</h>
+      <x>224</x>
+      <y>1281</y>
+      <w>63</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
@@ -450,10 +450,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>732</y>
-      <w>36</w>
-      <h>16</h>
+      <x>224</x>
+      <y>1162</y>
+      <w>63</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
@@ -461,10 +461,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>664</y>
-      <w>36</w>
-      <h>16</h>
+      <x>224</x>
+      <y>1043</y>
+      <w>63</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
@@ -472,10 +472,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>584</y>
-      <w>36</w>
-      <h>16</h>
+      <x>224</x>
+      <y>903</y>
+      <w>63</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 </panel_attributes>
@@ -484,10 +484,10 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>572</y>
-      <w>72</w>
-      <h>68</h>
+      <x>273</x>
+      <y>882</y>
+      <w>126</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>Enemy
 &lt;&lt;abstract&gt;&gt;
@@ -500,10 +500,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>864</y>
-      <w>36</w>
-      <h>88</h>
+      <x>224</x>
+      <y>1393</y>
+      <w>63</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;10.0;200.0;70.0;200.0</additional_attributes>
@@ -511,10 +511,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>612</x>
-      <y>296</y>
-      <w>236</w>
-      <h>156</h>
+      <x>392</x>
+      <y>399</y>
+      <w>413</w>
+      <h>273</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 &lt;&lt;instance of&gt;&gt;</panel_attributes>
@@ -523,10 +523,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>836</x>
-      <y>296</y>
-      <w>12</w>
-      <h>64</h>
+      <x>784</x>
+      <y>399</y>
+      <w>21</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
@@ -534,10 +534,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>836</x>
-      <y>344</y>
-      <w>148</w>
-      <h>16</h>
+      <x>784</x>
+      <y>483</y>
+      <w>259</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;instance of&gt;&gt;</panel_attributes>
@@ -546,10 +546,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>836</x>
-      <y>136</y>
-      <w>12</w>
-      <h>96</h>
+      <x>784</x>
+      <y>119</y>
+      <w>21</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
@@ -557,10 +557,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>836</x>
-      <y>176</y>
-      <w>232</w>
-      <h>56</h>
+      <x>784</x>
+      <y>189</y>
+      <w>427</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;instance of&gt;&gt;</panel_attributes>
@@ -569,10 +569,10 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>176</y>
-      <w>248</w>
-      <h>56</h>
+      <x>371</x>
+      <y>189</y>
+      <w>434</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;instance of&gt;&gt;</panel_attributes>
