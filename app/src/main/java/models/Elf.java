@@ -2,6 +2,13 @@ package models;
 
 public class Elf extends Hero {
 
+    public Elf(){
+        super.setHealth(100);
+        super.setAttackPower(20);
+        super.setAttackSpeed(60);
+        super.setDefense(50);
+    }
+
     public Elf(int health, int attackPower, int attackSpeed, int defense, int exp){
         setHealth(health);
         setAttackPower(attackPower);

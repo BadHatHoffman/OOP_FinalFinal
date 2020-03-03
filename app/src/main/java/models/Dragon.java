@@ -4,6 +4,12 @@ public class Dragon extends Enemy {
 
     private int damageModifier;
 
+    public Dragon(){
+        super.setHealth(500);
+        super.setAttackPower(20);
+        super.setAttackSpeed(20);
+        super.setDefense(40);
+    }
     public Dragon(int health, int attackPower, int attackSpeed, int defense, int damageModifier){
         setHealth(health);
         setAttackPower(attackPower);
