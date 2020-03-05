@@ -18,32 +18,32 @@ public class DungeonMenu extends AppCompatActivity {
     }
 
     public void onClick_Attack(View v){
-        //TODO
+        //TODO Ethan
     }
 
     public void onClick_Potion(View v){
-        //TODO
+        //TODO Kayla
     }
 
     public void onClick_Continue(View v){
-        //TODO
+        //TODO Ethan
     }
 
     public void levelUP() {
-        //TODO
+        //TODO Kayla
     }
 
     public void updateStats(){
-        //TODO
+        //TODO Kayla
     }
     public void enemyDeath(){
-        //TODO
+        //TODO KAT
     }
 
     public void displayStory(){
-        //TODO
+        //TODO KAT
     }
     public void enemyCounter(){
-        //TODO
+        //TODO KAT
     }
 }
