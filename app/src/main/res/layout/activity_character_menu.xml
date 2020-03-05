@@ -103,12 +103,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="124dp"
         android:layout_marginEnd="93dp"
         android:text="Wolf"
         android:textColor="#EFE9E9"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/wolfBttn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,9 +123,18 @@
         android:text="Elf"
         android:textColor="#E8E8E8"
         android:textSize="30sp"
+<<<<<<< HEAD
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/elfBttn"
         app:layout_constraintTop_toBottomOf="@+id/wolfTxt" />
+=======
+        app:layout_constraintBottom_toTopOf="@+id/humanTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/elfBttn"
+        app:layout_constraintTop_toBottomOf="@+id/wolfTxt"
+        app:layout_constraintVertical_bias="0.402" />
+>>>>>>> 8c756e16ba26e2958aa863d1797c1330b8a8b7c6
 
     <TextView
         android:id="@+id/humanTxt"
@@ -139,7 +149,14 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintStart_toEndOf="@+id/humanBttn"
         app:layout_constraintTop_toBottomOf="@+id/elfTxt" />
+=======
+        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.728" />
+>>>>>>> 8c756e16ba26e2958aa863d1797c1330b8a8b7c6
 
 </androidx.constraintlayout.widget.ConstraintLayout>
