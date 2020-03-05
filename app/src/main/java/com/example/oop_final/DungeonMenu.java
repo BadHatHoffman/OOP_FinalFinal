@@ -37,12 +37,7 @@ public class DungeonMenu extends AppCompatActivity {
         //TODO
     }
 
-<<<<<<< HEAD
-
-
-=======
     public void onContinue(View v){
-
+    //TODO
     }
->>>>>>> 9c9bd547f895df80c4a345129f9de47e1eec7a51
 }
