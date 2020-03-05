@@ -23,4 +23,8 @@ public class DungeonMenu extends AppCompatActivity {
     public void onDefense(View v){
 
     }
+
+    public void onContinue(View v){
+
+    }
 }
