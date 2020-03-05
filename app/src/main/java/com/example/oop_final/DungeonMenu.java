@@ -18,20 +18,29 @@ public class DungeonMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dungeon_menu);
         bundles = getIntent().getExtras();
-        wolf = bundles.getString("WOLF");
-
-        if()
     }
 
-    public void onAttack(View v){
-
+    public void onClick_Attack(View v){
+        //TODO
     }
 
-    public void onDefense(View v){
+    public void onClick_Potion(View v){
+        //TODO
+    }
 
+    public void onClick_Continue(View v){
+        //TODO
+    }
+
+    public void levelUP() {
+        //TODO
+    }
+
+    public void updateStats(){
+        //TODO
     }
 
     public void onContinue(View v){
-
+    //TODO
     }
 }
