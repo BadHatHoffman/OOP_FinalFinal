@@ -48,5 +48,6 @@ public class DungeonMenu extends AppCompatActivity {
     }
     public void enemyCounter(){
         //TODO
+        
     }
 }
