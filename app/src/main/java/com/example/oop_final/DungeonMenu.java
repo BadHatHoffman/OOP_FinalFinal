@@ -14,13 +14,29 @@ public class DungeonMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dungeon_menu);
         bundles = getIntent().getExtras();
-    }
-
-    public void onAttack(View v){
 
     }
 
-    public void onDefense(View v){
-
+    public void onClick_Attack(View v){
+        //TODO
     }
+
+    public void onClick_Potion(View v){
+        //TODO
+    }
+
+    public void onClick_Continue(View v){
+        //TODO
+    }
+
+    public void levelUP() {
+        //TODO
+    }
+
+    public void updateStats(){
+        //TODO
+    }
+
+
+
 }
