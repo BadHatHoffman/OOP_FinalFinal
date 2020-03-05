@@ -39,8 +39,14 @@ public class DungeonMenu extends AppCompatActivity {
     public void updateStats(){
         //TODO
     }
+    public void enemyDeath(){
+        //TODO
+    }
 
-    public void onContinue(View v){
-    //TODO
+    public void displayStory(){
+        //TODO
+    }
+    public void enemyCounter(){
+        //TODO
     }
 }
