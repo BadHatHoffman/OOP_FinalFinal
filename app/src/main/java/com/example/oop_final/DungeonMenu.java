@@ -8,12 +8,19 @@ import android.view.Window;
 
 public class DungeonMenu extends AppCompatActivity {
     public Bundle bundles;
+    private String wolf;
+    private String elf;
+    private String human;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dungeon_menu);
         bundles = getIntent().getExtras();
+        wolf = bundles.getString("WOLF");
+
+        if()
     }
 
     public void onAttack(View v){

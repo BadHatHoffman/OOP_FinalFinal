@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
+import models.Wolf;
+
 public class CharacterMenu extends AppCompatActivity {
     public Bundle bundle = new Bundle();
     @Override
@@ -21,6 +23,8 @@ public class CharacterMenu extends AppCompatActivity {
         Intent intent = new Intent(this, DungeonMenu.class);
         intent.putExtras(bundle);
         startActivity(intent);
+        String wolfInfo = "wolf";
+        bundle.putString("WOLF",  wolfInfo);
     }
 
     public void elfClick(View v){
