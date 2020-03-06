@@ -6,14 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-<<<<<<< HEAD
 import android.widget.TextView;
 
 import models.Elf;
 import models.Human;
 import models.Wolf;
 import pl.droidsonroids.gif.GifImageView;
-=======
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,7 +20,6 @@ import models.Gnome;
 import models.Hero;
 import models.Human;
 import models.Wolf;
->>>>>>> be947daad595049081fcf3fc05e73fd5769123ef
 
 public class DungeonMenu extends AppCompatActivity {
     public Bundle bundles;
@@ -111,21 +108,18 @@ public class DungeonMenu extends AppCompatActivity {
                 player.setHealth(player.getMaxHealth());
 
                 player.setAttackPower(player.getAttackPower() + WOLF_PLACEHOLDER );
-                player.setDefense(WOLF_PLACEHOLDER);
                 break;
             case "Elf":
                 player.setMaxHealth(ELF_PLACEHOLDER);
                 player.setHealth(player.getMaxHealth());
 
                 player.setAttackPower(player.getAttackPower() + ELF_PLACEHOLDER );
-                player.setDefense(ELF_PLACEHOLDER);
                 break;
             case "Human":
                 player.setMaxHealth(HUMAN_PLACEHOLDER);
                 player.setHealth(player.getMaxHealth());
 
                 player.setAttackPower(player.getAttackPower() + HUMAN_PLACEHOLDER );
-                player.setDefense(player.getDefense() + HUMAN_PLACEHOLDER);
                 break;
         }
     }
