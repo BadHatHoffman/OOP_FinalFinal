@@ -6,14 +6,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-<<<<<<< HEAD
 import android.widget.TextView;
-
 import models.Elf;
 import models.Human;
 import models.Wolf;
 import pl.droidsonroids.gif.GifImageView;
-=======
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,39 +19,49 @@ import models.Gnome;
 import models.Hero;
 import models.Human;
 import models.Wolf;
->>>>>>> be947daad595049081fcf3fc05e73fd5769123ef
 
 public class DungeonMenu extends AppCompatActivity {
     public Bundle bundles;
-    private boolean wolf;
-    private boolean elf;
-    private boolean human;
-    private GifImageView enemyImg, characterImg;
+    private boolean wolfPlayer, elfPlayer, humanPlayer;
+    private GifImageView elfImg, humanImg, wolfImg;
     private TextView enemyHealth, characterStats;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dungeon_menu);
-        enemyImg = findViewById(R.id.enemyChar);
-        characterImg = findViewById(R.id.characterChar);
+        //enemyImg = findViewById(R.id.enemyChar);
+        elfImg = findViewById(R.id.elfChar);
+        humanImg = findViewById(R.id.humanChar);
+        wolfImg = findViewById(R.id.wolfChar);
         enemyHealth = findViewById(R.id.enemyHealth);
         characterStats = findViewById(R.id.playerStats);
         bundles = getIntent().getExtras();
-        wolf = bundles.getBoolean("WOLF");
-        elf = bundles.getBoolean("ELF");
-        human = bundles.getBoolean("HUMAN");
+        wolfPlayer = bundles.getBoolean("WOLF");
+        elfPlayer = bundles.getBoolean("ELF");
+        humanPlayer = bundles.getBoolean("HUMAN");
 
-        if(wolf){
-            characterStats.setText(new Wolf().toString());
-            characterImg.setImageResource(getResources().getIdentifier("wolf.gif","drawable",getPackageName()));
-        }else if(elf){
+        if(wolfPlayer){
+           characterStats.setText(new Wolf().toString());
+           elfImg.setVisibility(View.INVISIBLE);
+           humanImg.setVisibility(View.INVISIBLE);
+           wolfImg.setVisibility(View.VISIBLE);
+
+        }else if(elfPlayer){
             characterStats.setText(new Elf().toString());
-            characterImg.setImageResource(getResources().getIdentifier("elf.gif","drawable",getPackageName()));
-        }else if(human){
+            wolfImg.setVisibility(View.INVISIBLE);
+            humanImg.setVisibility(View.INVISIBLE);
+            elfImg.setVisibility(View.VISIBLE);
+
+        }else if(humanPlayer){
             characterStats.setText(new Human().toString());
-            characterImg.setBackgroundResource(getResources().getIdentifier("human.gif", "drawable", getPackageName()));
+            wolfImg.setVisibility(View.INVISIBLE);
+            elfImg.setVisibility(View.INVISIBLE);
+            humanImg.setVisibility(View.VISIBLE);
+
         }
     }
     Hero player = new Wolf();
