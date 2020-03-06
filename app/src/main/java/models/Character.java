@@ -5,8 +5,6 @@ import java.util.Random;
 public abstract class Character {
     protected int health;
     protected int attackPower;
-    protected int attackSpeed;
-    protected int defense;
     protected int level;
     public Random rng = new Random();
 
@@ -25,22 +23,6 @@ public abstract class Character {
 
     public void setAttackPower(int attackPower) {
         this.attackPower = attackPower;
-    }
-
-    public int getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    public void setAttackSpeed(int attackSpeed) {
-        this.attackSpeed = attackSpeed;
-    }
-
-    public int getDefense() {
-        return defense;
-    }
-
-    public void setDefense(int defense) {
-        this.defense = defense;
     }
 
     public int getLevel() {
@@ -65,8 +47,6 @@ public abstract class Character {
     public String toString(){
         return new StringBuilder(this.getClass().getSimpleName()).
                 append("\nHealth: ").append(getHealth()).
-                append("\nAttack Power: ").append(getAttackPower()).
-                append("\nAttack Speed: ").append(getAttackSpeed()).
-                append("\nDefense: ").append(getDefense()).toString();
+                append("\nAttack Power: ").append(getAttackPower()).toString();
     }
 }

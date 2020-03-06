@@ -6,15 +6,15 @@ public class Wolf extends Hero {
         super.setHealth(150);
         super.setMaxHealth(150);
         super.setAttackPower(10);
-        super.setAttackSpeed(20);
-        super.setDefense(80);
+        super.setBlockChance(30);
+        super.setDodgeChance(10);
     }
 
-    public Wolf(int health, int attackPower, int attackSpeed, int defense, int exp){
+    public Wolf(int health, int attackPower, int dodgeChance, int blockChance, int exp){
         setHealth(health);
         setAttackPower(attackPower);
-        setAttackSpeed(attackSpeed);
-        setDefense(defense);
+        setDodgeChance(dodgeChance);
+        setBlockChance(blockChance);
         setExp(exp);
     }
 
@@ -39,18 +39,18 @@ public class Wolf extends Hero {
     }
 
     @Override
-    public void setAttackSpeed(int attackSpeed) {
-        super.setAttackSpeed(attackSpeed);
-    }
-
-    @Override
-    public void setDefense(int defense) {
-        super.setDefense(defense);
-    }
-
-    @Override
     public void setLevel(int level) {
         super.setLevel(level);
+    }
+
+    @Override
+    public void setBlockChance(int blockChance) {
+        super.setBlockChance(blockChance);
+    }
+
+    @Override
+    public void setDodgeChance(int dodgeChance) {
+        super.setDodgeChance(dodgeChance);
     }
 
     @Override

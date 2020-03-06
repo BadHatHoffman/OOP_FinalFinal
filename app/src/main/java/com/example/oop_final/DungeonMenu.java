@@ -6,14 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-<<<<<<< HEAD
 import android.widget.TextView;
 
 import models.Elf;
 import models.Human;
 import models.Wolf;
 import pl.droidsonroids.gif.GifImageView;
-=======
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,7 +20,6 @@ import models.Gnome;
 import models.Hero;
 import models.Human;
 import models.Wolf;
->>>>>>> be947daad595049081fcf3fc05e73fd5769123ef
 
 public class DungeonMenu extends AppCompatActivity {
     public Bundle bundles;
@@ -31,6 +28,7 @@ public class DungeonMenu extends AppCompatActivity {
     private boolean human;
     private GifImageView enemyImg, characterImg;
     private TextView enemyHealth, characterStats;
+    private int enemyCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +134,5 @@ public class DungeonMenu extends AppCompatActivity {
     public void displayStory(){
         //TODO KAT
     }
-    public void enemyCounter(){
-        //TODO KAT
-    }
+
 }
