@@ -6,15 +6,15 @@ public class Elf extends Hero {
         super.setHealth(100);
         super.setMaxHealth(100);
         super.setAttackPower(20);
-        super.setAttackSpeed(60);
-        super.setDefense(50);
+        super.setBlockChance(30);
+        super.setDodgeChance(10);
     }
 
-    public Elf(int health, int attackPower, int attackSpeed, int defense, int exp){
+    public Elf(int health, int attackPower, int blockChance, int dodgeChance, int exp){
         setHealth(health);
         setAttackPower(attackPower);
-        setAttackSpeed(attackSpeed);
-        setDefense(defense);
+        setBlockChance(blockChance);
+        setDodgeChance(dodgeChance);
         setExp(exp);
     }
 
@@ -40,13 +40,13 @@ public class Elf extends Hero {
     }
 
     @Override
-    public void setAttackSpeed(int attackSpeed) {
-        super.setAttackSpeed(attackSpeed);
+    public void setBlockChance(int blockChance) {
+        super.setBlockChance(blockChance);
     }
 
     @Override
-    public void setDefense(int defense) {
-        super.setDefense(defense);
+    public void setDodgeChance(int dodgeChance) {
+        super.setDodgeChance(dodgeChance);
     }
 
     @Override
