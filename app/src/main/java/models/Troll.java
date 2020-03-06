@@ -5,15 +5,13 @@ public class Troll extends Enemy {
     public Troll(){
         super.setHealth(30);
         super.setAttackPower(10);
-        super.setAttackSpeed(40);
-        super.setDefense(20);
+
     }
 
     public Troll(int health, int attackPower, int attackSpeed, int defense){
         setHealth(health);
         setAttackPower(attackPower);
-        setAttackSpeed(attackSpeed);
-        setDefense(defense);
+
     }
 
     @Override
@@ -24,16 +22,6 @@ public class Troll extends Enemy {
     @Override
     public void setAttackPower(int attackPower) {
         super.setAttackPower(attackPower);
-    }
-
-    @Override
-    public void setAttackSpeed(int attackSpeed) {
-        super.setAttackSpeed(attackSpeed);
-    }
-
-    @Override
-    public void setDefense(int defense) {
-        super.setDefense(defense);
     }
 
     @Override

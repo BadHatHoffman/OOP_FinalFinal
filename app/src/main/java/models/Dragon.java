@@ -7,14 +7,11 @@ public class Dragon extends Enemy {
     public Dragon(){
         super.setHealth(500);
         super.setAttackPower(20);
-        super.setAttackSpeed(20);
-        super.setDefense(40);
+
     }
     public Dragon(int health, int attackPower, int attackSpeed, int defense, int damageModifier){
         setHealth(health);
         setAttackPower(attackPower);
-        setAttackSpeed(attackSpeed);
-        setDefense(defense);
         setDamageModifier(damageModifier);
     }
 
@@ -36,15 +33,6 @@ public class Dragon extends Enemy {
         super.setAttackPower(attackPower);
     }
 
-    @Override
-    public void setAttackSpeed(int attackSpeed) {
-        super.setAttackSpeed(attackSpeed);
-    }
-
-    @Override
-    public void setDefense(int defense) {
-        super.setDefense(defense);
-    }
 
     @Override
     public void setLevel(int level) {
