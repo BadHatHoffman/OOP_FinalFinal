@@ -20,23 +20,26 @@ public class CharacterMenu extends AppCompatActivity {
 
 
     public void wolfClick(View v){
+        bundle.putBoolean("WOLF", true);
         Intent intent = new Intent(this, DungeonMenu.class);
         intent.putExtras(bundle);
         startActivity(intent);
-        String wolfInfo = "wolf";
-        bundle.putString("WOLF",  wolfInfo);
     }
 
     public void elfClick(View v){
+        bundle.putBoolean("ELF",  true);
         Intent intent = new Intent(this, DungeonMenu.class);
         intent.putExtras(bundle);
         startActivity(intent);
+
 
     }
 
     public void humanClick(View v){
+        bundle.putBoolean("HUMAN",  true);
         Intent intent = new Intent(this, DungeonMenu.class);
         intent.putExtras(bundle);
         startActivity(intent);
+
     }
 }
