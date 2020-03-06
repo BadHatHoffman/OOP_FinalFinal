@@ -4,6 +4,7 @@ public class Elf extends Hero {
 
     public Elf(){
         super.setHealth(100);
+        super.setMaxHealth(100);
         super.setAttackPower(20);
         super.setAttackSpeed(60);
         super.setDefense(50);
@@ -16,6 +17,12 @@ public class Elf extends Hero {
         setDefense(defense);
         setExp(exp);
     }
+
+    @Override
+    public void setMaxHealth(int maxHealth) {
+        super.setMaxHealth(maxHealth);
+    }
+
 
     @Override
     public void setExp(int exp) {

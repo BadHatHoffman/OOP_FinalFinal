@@ -4,6 +4,7 @@ public class Human extends Hero{
 
     public Human(){
         super.setHealth(120);
+        super.setMaxHealth(120);
         super.setAttackPower(15);
         super.setAttackSpeed(40);
         super.setDefense(65);
@@ -15,6 +16,11 @@ public class Human extends Hero{
         setAttackSpeed(attackSpeed);
         setDefense(defense);
         setExp(exp);
+    }
+
+    @Override
+    public void setMaxHealth(int maxHealth) {
+        super.setMaxHealth(maxHealth);
     }
 
     @Override
