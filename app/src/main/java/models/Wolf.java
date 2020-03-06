@@ -4,6 +4,7 @@ public class Wolf extends Hero {
 
     public Wolf(){
         super.setHealth(150);
+        super.setMaxHealth(150);
         super.setAttackPower(10);
         super.setAttackSpeed(20);
         super.setDefense(80);
@@ -15,6 +16,11 @@ public class Wolf extends Hero {
         setAttackSpeed(attackSpeed);
         setDefense(defense);
         setExp(exp);
+    }
+
+    @Override
+    public void setMaxHealth(int maxHealth) {
+        super.setMaxHealth(maxHealth);
     }
 
     @Override
