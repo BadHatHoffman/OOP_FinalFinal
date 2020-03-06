@@ -109,21 +109,18 @@ public class DungeonMenu extends AppCompatActivity {
                 player.setHealth(player.getMaxHealth());
 
                 player.setAttackPower(player.getAttackPower() + WOLF_PLACEHOLDER );
-                player.setDefense(WOLF_PLACEHOLDER);
                 break;
             case "Elf":
                 player.setMaxHealth(ELF_PLACEHOLDER);
                 player.setHealth(player.getMaxHealth());
 
                 player.setAttackPower(player.getAttackPower() + ELF_PLACEHOLDER );
-                player.setDefense(ELF_PLACEHOLDER);
                 break;
             case "Human":
                 player.setMaxHealth(HUMAN_PLACEHOLDER);
                 player.setHealth(player.getMaxHealth());
 
                 player.setAttackPower(player.getAttackPower() + HUMAN_PLACEHOLDER );
-                player.setDefense(player.getDefense() + HUMAN_PLACEHOLDER);
                 break;
         }
     }
