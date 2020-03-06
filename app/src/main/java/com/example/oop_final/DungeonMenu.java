@@ -58,8 +58,8 @@ public class DungeonMenu extends AppCompatActivity {
             if(player.getClass().getSimpleName().equals("Wolf")){
                 updateStats("Wolf");
             }
-            if(player.getClass().getSimpleName().equals("Gnome")){
-                updateStats("Gnome");
+            if(player.getClass().getSimpleName().equals("Elf")){
+                updateStats("Elf");
             }
             if(player.getClass().getSimpleName().equals("Human")){
                 updateStats("Human");
@@ -80,7 +80,7 @@ public class DungeonMenu extends AppCompatActivity {
                 player.setAttackPower(player.getAttackPower() + WOLF_PLACEHOLDER );
                 player.setDefense(WOLF_PLACEHOLDER);
                 break;
-            case "Gnome":
+            case "Elf":
                 player.setMaxHealth(ELF_PLACEHOLDER);
                 player.setHealth(player.getMaxHealth());
 
