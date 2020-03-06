@@ -100,27 +100,21 @@ public class DungeonMenu extends AppCompatActivity {
 
     public void updateStats(String playerType){
         //TODO Kayla
-        int WOLF_PLACEHOLDER = -1;
-        int ELF_PLACEHOLDER= -1;
-        int HUMAN_PLACEHOLDER = -1;
         switch (playerType){
             case "Wolf":
-                player.setMaxHealth(WOLF_PLACEHOLDER);
+                player.setMaxHealth(player.getMaxHealth() + 10);
                 player.setHealth(player.getMaxHealth());
-
-                player.setAttackPower(player.getAttackPower() + WOLF_PLACEHOLDER );
+                player.setAttackPower(player.getAttackPower() + 2 );
                 break;
             case "Elf":
-                player.setMaxHealth(ELF_PLACEHOLDER);
+                player.setMaxHealth(player.getMaxHealth() + 6);
                 player.setHealth(player.getMaxHealth());
-
-                player.setAttackPower(player.getAttackPower() + ELF_PLACEHOLDER );
+                player.setAttackPower(player.getAttackPower() + 6 );
                 break;
             case "Human":
-                player.setMaxHealth(HUMAN_PLACEHOLDER);
+                player.setMaxHealth(player.getMaxHealth() + 8);
                 player.setHealth(player.getMaxHealth());
-
-                player.setAttackPower(player.getAttackPower() + HUMAN_PLACEHOLDER );
+                player.setAttackPower(player.getAttackPower() + 4 );
                 break;
         }
     }
