@@ -18,6 +18,7 @@ public class Elf extends Hero {
         setExp(exp);
     }
 
+
     @Override
     public void setMaxHealth(int maxHealth) {
         super.setMaxHealth(maxHealth);
@@ -47,6 +48,13 @@ public class Elf extends Hero {
     @Override
     public void setDodgeChance(int dodgeChance) {
         super.setDodgeChance(dodgeChance);
+    }
+
+    @Override
+    public void levelUp() {
+        setMaxHealth(getMaxHealth() + 6);
+        setHealth(getMaxHealth());
+        setAttackPower(getAttackPower() + 6 );
     }
 
     @Override

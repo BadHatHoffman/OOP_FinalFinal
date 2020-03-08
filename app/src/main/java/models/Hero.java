@@ -44,6 +44,7 @@ public abstract class Hero extends Character {
 
     }
 
+    abstract public void levelUp();
     @Override
     public String toString(){
         return new StringBuilder(super.toString()).

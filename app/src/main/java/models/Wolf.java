@@ -54,6 +54,13 @@ public class Wolf extends Hero {
     }
 
     @Override
+    public void levelUp() {
+        setMaxHealth(getMaxHealth() + 10);
+        setHealth(getMaxHealth());
+        setAttackPower(getAttackPower() + 2 );
+    }
+
+    @Override
     public int attack(int roll) {
         return 0;
     }

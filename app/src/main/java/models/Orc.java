@@ -5,7 +5,8 @@ public class Orc extends Enemy {
     public Orc(){
         super.setHealth(40);
         super.setAttackPower(15);
-
+        super.setExperienceWorth(75);
+        super.setHitNum(12);
     }
 
     public Orc(int health, int attackPower, int attackSpeed, int defense){
