@@ -5,6 +5,8 @@ public class Gnome extends Enemy {
     public Gnome(){
         super.setHealth(20);
         super.setAttackPower(5);
+        super.setExperienceWorth(20);
+        super.setHitNum(5);
     }
 
     public Gnome(int health, int attackPower, int attackSpeed, int defense){

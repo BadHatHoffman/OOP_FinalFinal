@@ -49,6 +49,13 @@ public class Human extends Hero{
     }
 
     @Override
+    public void levelUp() {
+        setMaxHealth(getMaxHealth() + 8);
+        setHealth(getMaxHealth());
+        setAttackPower(getAttackPower() + 4 );
+    }
+
+    @Override
     public void setLevel(int level) {
         super.setLevel(level);
     }
