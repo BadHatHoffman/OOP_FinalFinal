@@ -5,7 +5,7 @@ public class Ogre extends Enemy {
     public Ogre(){
         super.setHealth(40);
         super.setAttackPower(15);
-        super.setExperienceWorth(60);
+        super.setExperienceWorth(65);
         super.setHitNum(10);
     }
 

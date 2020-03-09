@@ -121,16 +121,12 @@ public class DungeonMenu extends AppCompatActivity {
     public void checkLevelUP() {
         //TODO Kayla
         if(player.getExp()>=100){
-            player.setExp(0);
+            player.setExp(player.getExp()-100);
             player.levelUp();
-          //  characterStats.setText("You have leveled up!\n" + player.toString() );
+            //display level
         }
     }
 
-    public void updateStats(){
-        //TODO Kayla
-
-    }
     public void enemyDeath(){
         //TODO KAT
         player.setExp(player.getExp() + enemy.getExperienceWorth());
@@ -158,10 +154,14 @@ public class DungeonMenu extends AppCompatActivity {
         if(enemy.getHealth() <= 0){
             enemyDeath();
         }
+
+        // under a 8, miss
+        //8-19 hit
+        // 20 crit
     }
     public void enemyAttacks(){
         int enemyRoll = enemy.roll(1,20);
-        if(enemyRoll>=10){
+        if(enemyRoll>10){
             player.setHealth(player.getHealth() - enemy.getAttackPower());
             storyTxt.append("\n\nThe " + enemy.getClass().getSimpleName() + " hits you for " + enemy.getAttackPower() + " damage!");
             //block and dodge
