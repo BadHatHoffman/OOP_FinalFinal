@@ -35,6 +35,7 @@ public class DungeonMenu extends AppCompatActivity {
     private TextView enemyHealth, characterStats, storyTxt;
     private Button attackButton, continueButton, potionButton;
     private int enemyCounter = 0;
+    private int potions = 3;
     Hero player;
     Enemy enemy = new Gnome();
     Enemy[] dungeonEnemy = {new Gnome(), new Troll(), new Ogre(), new Orc(), new Dragon()};
@@ -83,8 +84,6 @@ public class DungeonMenu extends AppCompatActivity {
             player = new Human();
         }
     }
-    int potions = 3;
-
     public void onClick_Attack(View v){
         playerAttacks();
         enemyHealth.setText(enemy.toString());
@@ -92,28 +91,31 @@ public class DungeonMenu extends AppCompatActivity {
         characterStats.setText(player.toString());
     }
 
+
+
     public void onClick_Potion(View v){
         //TODO Kayla
         potionButton.setText("Health: " + potions);
         if(potions > 0){
             if (player.getHealth() + 50 > player.getMaxHealth()){
                 player.setHealth(player.getMaxHealth());
+                potions--;
             }else{
                 player.setHealth(player.getHealth() + 50);
+                potions--;
             }
-            potions--;
         }
         if (potions == 0){
-            //MAKE BUTTON DISABLE
+            potionButton.setEnabled(false);
         }
         characterStats.setText(player.toString());
     }
 
     public void onClick_Continue(View v){
         //TODO Ethan
-        attackButton.setVisibility(View.VISIBLE);
-        potionButton.setVisibility(View.VISIBLE);
-        continueButton.setVisibility(View.GONE);
+        attackButton.setEnabled(true);
+        potionButton.setEnabled(true);
+        continueButton.setEnabled(false);
     }
 
     public void checkLevelUP() {
@@ -168,9 +170,9 @@ public class DungeonMenu extends AppCompatActivity {
         if(player.getHealth() <=0){
             player.setHealth(0);
             storyTxt.setText("Game Over!!");
-            attackButton.setVisibility(View.GONE);
-            continueButton.setVisibility(View.GONE);
-            potionButton.setVisibility(View.GONE);
+            attackButton.setEnabled(false);
+            continueButton.setEnabled(false);
+            potionButton.setEnabled(false);
         }
     }
 }
