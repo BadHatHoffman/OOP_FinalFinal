@@ -95,14 +95,13 @@ public class DungeonMenu extends AppCompatActivity {
 
     public void onClick_Potion(View v){
         //TODO Kayla
+        potions--;
         potionButton.setText("Health: " + potions);
         if(potions > 0){
             if (player.getHealth() + 50 > player.getMaxHealth()){
                 player.setHealth(player.getMaxHealth());
-                potions--;
             }else{
                 player.setHealth(player.getHealth() + 50);
-                potions--;
             }
         }
         if (potions == 0){
@@ -145,29 +144,37 @@ public class DungeonMenu extends AppCompatActivity {
     public void playerAttacks(){
         int playerRoll = player.roll(1,20);
 
-        if(playerRoll>=enemy.getHitNum()){
+
+
+
+        if (playerRoll<8){
+            storyTxt.setText("You missed!!");
+        } else if (playerRoll <= 19){
             enemy.setHealth(enemy.getHealth() - player.getAttackPower());
             storyTxt.setText("You hit the " + enemy.getClass().getSimpleName() + " for " + player.getAttackPower() + " damage!");
         } else {
-            storyTxt.setText("You missed!!");
+            enemy.setHealth(enemy.getHealth() - player.getAttackPower()*2);
+            storyTxt.setText("Critical hit! You do  " + player.getAttackPower()*2 +" damage to the " + enemy.getClass().getSimpleName());
         }
+
         if(enemy.getHealth() <= 0){
             enemyDeath();
         }
-
-        // under a 8, miss
-        //8-19 hit
-        // 20 crit
     }
     public void enemyAttacks(){
         int enemyRoll = enemy.roll(1,20);
         if(enemyRoll>10){
-            player.setHealth(player.getHealth() - enemy.getAttackPower());
-            storyTxt.append("\n\nThe " + enemy.getClass().getSimpleName() + " hits you for " + enemy.getAttackPower() + " damage!");
-            //block and dodge
+            if(enemy.rng.nextInt(100)<player.getBlockChance()){
+                player.setHealth((player.getHealth() - enemy.getAttackPower()/2));
+                storyTxt.append("\n\n You blocked and take " + enemy.getAttackPower()/2 + " damage.");
+            } else {
+                player.setHealth(player.getHealth() - enemy.getAttackPower());
+                storyTxt.append("\n\nThe " + enemy.getClass().getSimpleName() + " hits you for " + enemy.getAttackPower() + " damage!");
+            }
         } else {
-            storyTxt.append("\n\nThe enemy missed!");
+            storyTxt.append("\n\nYou dodged the attack!");
         }
+
         if(player.getHealth() <=0){
             player.setHealth(0);
             storyTxt.setText("Game Over!!");
