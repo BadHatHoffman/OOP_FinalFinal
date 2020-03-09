@@ -59,6 +59,7 @@ public class DungeonMenu extends AppCompatActivity {
         continueButton = findViewById(R.id.continueBttn);
         potionButton = findViewById(R.id.potionBttn);
         storyTxt = findViewById(R.id.storyTxt);
+        continueButton.setEnabled(false);
 
         if(wolfPlayer){
            characterStats.setText(new Wolf().toString());
@@ -134,9 +135,9 @@ public class DungeonMenu extends AppCompatActivity {
         checkLevelUP();
         enemyCounter++;
         enemy = dungeonEnemy[enemyCounter];
-        continueButton.setVisibility(View.VISIBLE);
-        attackButton.setVisibility(View.GONE);
-        potionButton.setVisibility(View.GONE);
+        continueButton.setEnabled(true);
+        attackButton.setEnabled(false);
+        potionButton.setEnabled(false);
     }
 
     public void displayStory(){
