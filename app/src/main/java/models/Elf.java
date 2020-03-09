@@ -7,14 +7,13 @@ public class Elf extends Hero {
         super.setMaxHealth(100);
         super.setAttackPower(20);
         super.setBlockChance(30);
-        super.setDodgeChance(10);
+
     }
 
-    public Elf(int health, int attackPower, int blockChance, int dodgeChance, int exp){
+    public Elf(int health, int attackPower, int blockChance, int exp){
         setHealth(health);
         setAttackPower(attackPower);
         setBlockChance(blockChance);
-        setDodgeChance(dodgeChance);
         setExp(exp);
     }
 
@@ -43,11 +42,6 @@ public class Elf extends Hero {
     @Override
     public void setBlockChance(int blockChance) {
         super.setBlockChance(blockChance);
-    }
-
-    @Override
-    public void setDodgeChance(int dodgeChance) {
-        super.setDodgeChance(dodgeChance);
     }
 
     @Override
