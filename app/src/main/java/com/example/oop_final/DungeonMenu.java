@@ -161,6 +161,7 @@ public class DungeonMenu extends AppCompatActivity {
         if(enemyRoll>=10){
             player.setHealth(player.getHealth() - enemy.getAttackPower());
             storyTxt.append("\n\nThe " + enemy.getClass().getSimpleName() + " hits you for " + enemy.getAttackPower() + " damage!");
+            //block and dodge
         } else {
             storyTxt.append("\n\nThe enemy missed!");
         }
