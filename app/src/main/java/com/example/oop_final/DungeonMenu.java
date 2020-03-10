@@ -83,6 +83,7 @@ public class DungeonMenu extends AppCompatActivity {
             humanImg.setVisibility(View.VISIBLE);
             player = new Human();
         }
+        enemyHealth.setText(enemy.toString());
     }
     public void onClick_Attack(View v){
         playerAttacks();
@@ -97,7 +98,7 @@ public class DungeonMenu extends AppCompatActivity {
         //TODO Kayla
         potions--;
         potionButton.setText("Health: " + potions);
-        if(potions > 0){
+        if(potions >= 0){
             if (player.getHealth() + 50 > player.getMaxHealth()){
                 player.setHealth(player.getMaxHealth());
             }else{
@@ -115,6 +116,8 @@ public class DungeonMenu extends AppCompatActivity {
         attackButton.setEnabled(true);
         potionButton.setEnabled(true);
         continueButton.setEnabled(false);
+        //textId.setText("");
+
     }
 
     public void checkLevelUP() {
@@ -122,7 +125,7 @@ public class DungeonMenu extends AppCompatActivity {
         if(player.getExp()>=100){
             player.setExp(player.getExp()-100);
             player.levelUp();
-            //display level
+            //textId.setText("Level Up! New Stats \n" +player.toString());
         }
     }
 
@@ -131,7 +134,15 @@ public class DungeonMenu extends AppCompatActivity {
         player.setExp(player.getExp() + enemy.getExperienceWorth());
         checkLevelUP();
         enemyCounter++;
-        enemy = dungeonEnemy[enemyCounter];
+
+        if (enemyCounter > 4){
+            storyTxt.setText("Testing, you win!");
+        } else{
+            enemy = dungeonEnemy[enemyCounter];
+        }
+
+
+
         continueButton.setEnabled(true);
         attackButton.setEnabled(false);
         potionButton.setEnabled(false);
@@ -145,7 +156,13 @@ public class DungeonMenu extends AppCompatActivity {
         int playerRoll = player.roll(1,20);
 
 
-
+        if(player.getHealth() <=0){
+            player.setHealth(0);
+            storyTxt.setText("Game Over!!");
+            attackButton.setEnabled(false);
+            continueButton.setEnabled(false);
+            potionButton.setEnabled(false);
+        }
 
         if (playerRoll<8){
             storyTxt.setText("You missed!!");
@@ -157,13 +174,14 @@ public class DungeonMenu extends AppCompatActivity {
             storyTxt.setText("Critical hit! You do  " + player.getAttackPower()*2 +" damage to the " + enemy.getClass().getSimpleName());
         }
 
-        if(enemy.getHealth() <= 0){
-            enemyDeath();
-        }
     }
     public void enemyAttacks(){
         int enemyRoll = enemy.roll(1,20);
-        if(enemyRoll>10){
+
+
+        if(enemy.getHealth() <= 0){
+            enemyDeath();
+        }else if(enemyRoll>10){
             if(enemy.rng.nextInt(100)<player.getBlockChance()){
                 player.setHealth((player.getHealth() - enemy.getAttackPower()/2));
                 storyTxt.append("\n\n You blocked and take " + enemy.getAttackPower()/2 + " damage.");
@@ -175,12 +193,5 @@ public class DungeonMenu extends AppCompatActivity {
             storyTxt.append("\n\nYou dodged the attack!");
         }
 
-        if(player.getHealth() <=0){
-            player.setHealth(0);
-            storyTxt.setText("Game Over!!");
-            attackButton.setEnabled(false);
-            continueButton.setEnabled(false);
-            potionButton.setEnabled(false);
-        }
     }
 }
