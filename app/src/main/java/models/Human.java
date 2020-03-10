@@ -7,14 +7,13 @@ public class Human extends Hero{
         super.setMaxHealth(120);
         super.setAttackPower(15);
         super.setBlockChance(30);
-        super.setDodgeChance(10);
     }
 
-    public Human(int health, int attackPower, int blockChance, int dodgeChance, int exp){
+    public Human(int health, int attackPower, int blockChance, int exp){
         setHealth(health);
         setAttackPower(attackPower);
         setBlockChance(blockChance);
-        setDodgeChance(dodgeChance);
+
         setExp(exp);
     }
 
@@ -43,9 +42,12 @@ public class Human extends Hero{
         super.setBlockChance(blockChance);
     }
 
+
     @Override
-    public void setDodgeChance(int dodgeChance) {
-        super.setDodgeChance(dodgeChance);
+    public void levelUp() {
+        setMaxHealth(getMaxHealth() + 8);
+        setHealth(getMaxHealth());
+        setAttackPower(getAttackPower() + 4 );
     }
 
     @Override

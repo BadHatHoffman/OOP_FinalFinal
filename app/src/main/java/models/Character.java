@@ -6,15 +6,27 @@ public abstract class Character {
     protected int health;
     protected int attackPower;
     protected int level;
+    protected int hitNum;
     public Random rng = new Random();
 
+    public int getHitNum() {
+        return hitNum;
+    }
+
+    public void setHitNum(int hitNum) {
+        this.hitNum = hitNum;
+    }
 
     public int getHealth() {
         return health;
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health <= 0){
+            this.health = 0;
+        } else{
+            this.health = health;
+        }
     }
 
     public int getAttackPower() {

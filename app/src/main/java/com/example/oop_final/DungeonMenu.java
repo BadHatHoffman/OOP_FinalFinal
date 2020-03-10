@@ -7,12 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+
+import models.Dragon;
 import models.Elf;
+import models.Enemy;
 import models.Human;
+import models.Ogre;
+import models.Orc;
+import models.Troll;
 import models.Wolf;
 import pl.droidsonroids.gif.GifImageView;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.lang.reflect.Array;
 
 import models.Character;
 import models.Gnome;
@@ -24,9 +32,13 @@ public class DungeonMenu extends AppCompatActivity {
     public Bundle bundles;
     private boolean wolfPlayer, elfPlayer, humanPlayer;
     private GifImageView elfImg, humanImg, wolfImg;
-    private TextView enemyHealth, characterStats;
+    private TextView enemyHealth, characterStats, storyTxt;
+    private Button attackButton, continueButton, potionButton;
     private int enemyCounter = 0;
-
+    private int potions = 3;
+    Hero player;
+    Enemy enemy = new Gnome();
+    Enemy[] dungeonEnemy = {new Gnome(), new Troll(), new Ogre(), new Orc(), new Dragon()};
 
 
 
@@ -45,96 +57,146 @@ public class DungeonMenu extends AppCompatActivity {
         wolfPlayer = bundles.getBoolean("WOLF");
         elfPlayer = bundles.getBoolean("ELF");
         humanPlayer = bundles.getBoolean("HUMAN");
+        attackButton = findViewById(R.id.attackBttn);
+        continueButton = findViewById(R.id.continueBttn);
+        potionButton = findViewById(R.id.potionBttn);
+        storyTxt = findViewById(R.id.storyTxt);
+        continueButton.setEnabled(false);
 
         if(wolfPlayer){
            characterStats.setText(new Wolf().toString());
            elfImg.setVisibility(View.INVISIBLE);
            humanImg.setVisibility(View.INVISIBLE);
            wolfImg.setVisibility(View.VISIBLE);
+           player = new Wolf();
 
         }else if(elfPlayer){
             characterStats.setText(new Elf().toString());
             wolfImg.setVisibility(View.INVISIBLE);
             humanImg.setVisibility(View.INVISIBLE);
             elfImg.setVisibility(View.VISIBLE);
+            player = new Elf();
 
         }else if(humanPlayer){
             characterStats.setText(new Human().toString());
             wolfImg.setVisibility(View.INVISIBLE);
             elfImg.setVisibility(View.INVISIBLE);
             humanImg.setVisibility(View.VISIBLE);
-
+            player = new Human();
         }
+        enemyHealth.setText(enemy.toString());
     }
-    Hero player = new Wolf();
-    int potions = 3;
-    //Placeholder
-
     public void onClick_Attack(View v){
-        //TODO Ethan
+        playerAttacks();
+        enemyHealth.setText(enemy.toString());
+        enemyAttacks();
+        characterStats.setText(player.toString());
     }
+
+
 
     public void onClick_Potion(View v){
         //TODO Kayla
-        if(potions > 0){
+        potions--;
+        potionButton.setText("Health: " + potions);
+        if(potions >= 0){
             if (player.getHealth() + 50 > player.getMaxHealth()){
                 player.setHealth(player.getMaxHealth());
             }else{
                 player.setHealth(player.getHealth() + 50);
             }
-            potions--;
         }
         if (potions == 0){
-            //MAKE BUTTON DISABLE
+            potionButton.setEnabled(false);
         }
+        characterStats.setText(player.toString());
     }
 
     public void onClick_Continue(View v){
         //TODO Ethan
+        attackButton.setEnabled(true);
+        potionButton.setEnabled(true);
+        continueButton.setEnabled(false);
+        //textId.setText("");
+
     }
 
-    public void levelUP() {
+    public void checkLevelUP() {
         //TODO Kayla
         if(player.getExp()>=100){
-            player.setExp(0);
-            if(player.getClass().getSimpleName().equals("Wolf")){
-                updateStats("Wolf");
-            }
-            if(player.getClass().getSimpleName().equals("Elf")){
-                updateStats("Elf");
-            }
-            if(player.getClass().getSimpleName().equals("Human")){
-                updateStats("Human");
-            }
+            player.setExp(player.getExp()-100);
+            player.levelUp();
+            //textId.setText("Level Up! New Stats \n" +player.toString());
         }
     }
 
-    public void updateStats(String playerType){
-        //TODO Kayla
-        switch (playerType){
-            case "Wolf":
-                player.setMaxHealth(player.getMaxHealth() + 10);
-                player.setHealth(player.getMaxHealth());
-                player.setAttackPower(player.getAttackPower() + 2 );
-                break;
-            case "Elf":
-                player.setMaxHealth(player.getMaxHealth() + 6);
-                player.setHealth(player.getMaxHealth());
-                player.setAttackPower(player.getAttackPower() + 6 );
-                break;
-            case "Human":
-                player.setMaxHealth(player.getMaxHealth() + 8);
-                player.setHealth(player.getMaxHealth());
-                player.setAttackPower(player.getAttackPower() + 4 );
-                break;
-        }
-    }
     public void enemyDeath(){
+<<<<<<< HEAD
         
+=======
+        //TODO KAT
+        player.setExp(player.getExp() + enemy.getExperienceWorth());
+        checkLevelUP();
+        enemyCounter++;
+
+        if (enemyCounter > 4){
+            storyTxt.setText("Testing, you win!");
+        } else{
+            enemy = dungeonEnemy[enemyCounter];
+        }
+
+
+
+        continueButton.setEnabled(true);
+        attackButton.setEnabled(false);
+        potionButton.setEnabled(false);
+>>>>>>> 1a39c57c582320615b8feff0d346ac9e29161acc
     }
 
     public void displayStory(){
         //TODO KAT
     }
 
+    public void playerAttacks(){
+        int playerRoll = player.roll(1,20);
+
+
+        if(player.getHealth() <=0){
+            player.setHealth(0);
+            storyTxt.setText("Game Over!!");
+            attackButton.setEnabled(false);
+            continueButton.setEnabled(false);
+            potionButton.setEnabled(false);
+        }
+
+        if (playerRoll<8){
+            storyTxt.setText("You missed!!");
+        } else if (playerRoll <= 19){
+            enemy.setHealth(enemy.getHealth() - player.getAttackPower());
+            storyTxt.setText("You hit the " + enemy.getClass().getSimpleName() + " for " + player.getAttackPower() + " damage!");
+        } else {
+            enemy.setHealth(enemy.getHealth() - player.getAttackPower()*2);
+            storyTxt.setText("Critical hit! You do  " + player.getAttackPower()*2 +" damage to the " + enemy.getClass().getSimpleName());
+        }
+
+    }
+    public void enemyAttacks(){
+        int enemyRoll = enemy.roll(1,20);
+
+
+        if(enemy.getHealth() <= 0){
+            enemyDeath();
+        }else if(enemyRoll>10){
+            if(enemy.rng.nextInt(100)<player.getBlockChance()){
+                player.setHealth((player.getHealth() - enemy.getAttackPower()/2));
+                storyTxt.append("\n\n You blocked and take " + enemy.getAttackPower()/2 + " damage.");
+            } else {
+                player.setHealth(player.getHealth() - enemy.getAttackPower());
+                storyTxt.append("\n\nThe " + enemy.getClass().getSimpleName() + " hits you for " + enemy.getAttackPower() + " damage!");
+            }
+        } else {
+            storyTxt.append("\n\nYou dodged the attack!");
+        }
+
+    }
 }

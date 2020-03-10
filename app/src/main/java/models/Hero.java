@@ -4,7 +4,7 @@ public abstract class Hero extends Character {
     protected int exp;
     protected int MaxHealth;
     protected int blockChance;
-    protected int dodgeChance;
+
 
     public int getExp() {
         return exp;
@@ -33,17 +33,7 @@ public abstract class Hero extends Character {
         }
     }
 
-    public int getDodgeChance() {
-        return dodgeChance;
-    }
-
-    public void setDodgeChance(int dodgeChance) {
-        if(dodgeChance <= 10) {
-            this.dodgeChance = dodgeChance;
-        }
-
-    }
-
+    abstract public void levelUp();
     @Override
     public String toString(){
         return new StringBuilder(super.toString()).
