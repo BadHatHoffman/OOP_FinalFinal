@@ -29,6 +29,7 @@ public class DungeonMenu extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -129,7 +130,7 @@ public class DungeonMenu extends AppCompatActivity {
         }
     }
     public void enemyDeath(){
-        //TODO KAT
+        
     }
 
     public void displayStory(){
