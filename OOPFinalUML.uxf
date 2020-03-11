@@ -4,115 +4,100 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>924</x>
-      <y>0</y>
-      <w>182</w>
-      <h>126</h>
+      <x>588</x>
+      <y>175</y>
+      <w>357</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>MainActivity
 --
-- playerName: EditText
-- openingTitle : TextView
-- bundle : Bundle
-
-
++ bundle : Bundle
 --
-+ openingScreen : void
-+ characterMenu : void
-+ dungeonMenu : void</panel_attributes>
+# onCreate(savedInstanceState : Bundle) : void &lt;&lt;override&gt;&gt;
++ beginClick(v : View) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1253</x>
-      <y>469</y>
-      <w>210</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>Dungeon
---
-- dungeon : Enemie[][]
---
-+ Dungeon &lt;&lt;ctor&gt;&gt;</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>497</x>
-      <y>273</y>
-      <w>245</w>
-      <h>133</h>
+      <x>259</x>
+      <y>315</y>
+      <w>357</w>
+      <h>287</h>
     </coordinates>
     <panel_attributes>DungeonMenu
 --
-- bundle : Bundle
-- enemies : Enemie[][]
++ bundle : Bundle
+- wolfPlayer : boolean
+- elfPlayer : boolean
+- humanPlayer : boolean
+- elfImg : GifImageView
+- humanImg : GifImageView
+- wolfImg : GifImageView
+- enemyHealth : TextView
+- characterStats : TextView
+- storyTxt : TextView
+- attackButton : Button
+- continueButton : Button
+- potionButton : Button
+- enemyCounter : int
+- potions : int
+- player : Hero
+- enemy : Enemy
+- dungeonEnemy : Enemy[]
 --
-+ dungeonMenu(v : View) : void
+# onCreate(savedInstanceState : Bundle) : void &lt;&lt;override&gt;&gt;
 + onClick_Attack(v : View) : void
-+ onClick_NextRoom(v : View) : void
-+ onClick_PreviousRoom(v : View) : void
-+ displayDungeon : void
-+ dungeonReset : void
++ onClick_Potion(v : View) : void
++ onCLick_Continue(v : View) : void
++ checkLevelUP() : void
++ enemyDeath() : void
++ displayStory : void
++ playerAttacks() : void
++ enemyAttacks() : void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1218</x>
-      <y>273</y>
-      <w>245</w>
-      <h>126</h>
-    </coordinates>
-    <panel_attributes>OpeningScreen
---
-- bundle : Bundle
-
---
-+ openingScreen(v : View): void
-+ onClick_Play(v : View) : void
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>882</x>
-      <y>273</y>
+      <x>651</x>
+      <y>413</y>
       <w>245</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>CharacterMenu
 --
-- bundle : Bundle
++ bundle : Bundle
+- wolfValue : boolean
+- elfValue : boolean
+- humanValue : boolean
+- wolfTxt : TextView
+- elfTxt : TextView
+- humanTxt : TextView
 --
-+ characterMenu(v : View) : void
-+ onClick_WolfCharacter(v: View) : void
-+ onClick_HumanCharacter(v : View) : void
-+ onClick_ElfCharacter(v : View) : void
++ onCreate(savedInstanceState : Bundle) : void &lt;&lt;override&gt;&gt;
++ wolfClick(v: View) : void
++ elfClick(v : View) : void
++ humanClickr(v : View) : void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>868</x>
-      <y>658</y>
+      <x>630</x>
+      <y>791</y>
       <w>266</w>
-      <h>238</h>
+      <h>245</h>
     </coordinates>
     <panel_attributes>/RPGCharacter/
 &lt;&lt;abstract&gt;&gt;
 --
 _# health : int_
 _# attackPower : int_
-_# attackSpeed : int_
-_# defense : int_
 _# level : int_
+_# hitNum : int_
 + rng : Random
 --
 + getHealth() : int
@@ -125,6 +110,8 @@ _# level : int_
 + setDefense(defense : int) : void
 + getLevel() : int
 + setLevel(level : int) : void
++ getHitNum() : int
++ setHitNum(hitNum : int) : void
 
 + roll(quantity : int, sides : int) : int
 /+ attack(roll : int) : int &lt;&lt;abstract&gt;&gt;/
@@ -136,23 +123,24 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1022</x>
-      <y>1169</y>
-      <w>567</w>
-      <h>133</h>
+      <x>777</x>
+      <y>1302</y>
+      <w>574</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>Human
 --
 
 --
 + Human() &lt;&lt;ctor&gt;&gt;
-+ Human(health : int, attackPower : int, attackSpeed : int, defense : int, exp : int) &lt;&lt;ctor&gt;&gt;
-+ setHealth() : int &lt;&lt;override&gt;&gt;
-+ setAttackPower() : int &lt;&lt;override&gt;&gt;
-+ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ setDefense() : int &lt;&lt;override&gt;&gt;
++ Human(health : int, maxHealth : int, attackPower : int, blockChance : int, exp : int) &lt;&lt;ctor&gt;&gt;
++ setHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setMaxHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setAttackPower(attackPower : int) : void &lt;&lt;override&gt;&gt;
 + setLevel() : int &lt;&lt;override&gt;&gt;
-+ getExp() : int &lt;override&gt;&gt;
++ setBlockChance(blockChance : int) : void &lt;&lt;override&gt;&gt;
++ setExp(exp : int) : void &lt;override&gt;&gt;
++ levelUp() : void &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -161,9 +149,9 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>497</x>
-      <y>1372</y>
-      <w>497</w>
+      <x>175</x>
+      <y>1547</y>
+      <w>595</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>Orc
@@ -171,11 +159,12 @@ _# level : int_
 
 --
 + Orc() &lt;&lt;ctor&gt;&gt;
-+ Orc(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ setHealth() : int &lt;&lt;override&gt;&gt;
-+ setAttackPower() : int &lt;&lt;override&gt;&gt;
-+ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ setDefense() : int &lt;&lt;override&gt;&gt;
++ Orc(health : int, attackPower : int,experienceWorth : int, hitNum : int, level : int) &lt;&lt;ctor&gt;&gt;
++ setHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setAttackPower(attackPower : int) : void &lt;&lt;override&gt;&gt;
++ setExperienceWorth(experienceWorth : int) : void &lt;&lt;override&gt;&gt;
++ setHitNum(hitNum : int) : void &lt;&lt;override&gt;&gt;
++ setLevel(level : int) : void &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -184,21 +173,22 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>497</x>
-      <y>1015</y>
-      <w>497</w>
-      <h>112</h>
+      <x>175</x>
+      <y>1148</y>
+      <w>595</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Gnome
 --
 
 --
 + Gnome() &lt;&lt;ctor&gt;&gt;
-+ Gnome(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ setHealth() : int &lt;&lt;override&gt;&gt;
-+ setAttackPower() : int &lt;&lt;override&gt;&gt;
-+ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ setDefense() : int &lt;&lt;override&gt;&gt;
++ Gnome(health : int, attackPower : int,experienceWorth : int, hitNum : int, level : int) &lt;&lt;ctor&gt;&gt;
++ setHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setAttackPower(attackPower : int) : void &lt;&lt;override&gt;&gt;
++ setExperienceWorth(experienceWorth : int) : void &lt;&lt;override&gt;&gt;
++ setHitNum(hitNum : int) : void &lt;&lt;override&gt;&gt;
++ setLevel(level : int) : void &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -207,23 +197,24 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1022</x>
-      <y>1015</y>
-      <w>567</w>
-      <h>133</h>
+      <x>777</x>
+      <y>1148</y>
+      <w>574</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>Wolf
 --
 
 --
 + Wolf() &lt;&lt;ctor&gt;&gt;
-+ Wolf(health : int, attackPower : int, attackSpeed : int, defense : int, exp : int) &lt;&lt;ctor&gt;&gt;
-+ setHealth() : int &lt;&lt;override&gt;&gt;
-+ setAttackPower() : int &lt;&lt;override&gt;&gt;
-+ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ setDefense() : int &lt;&lt;override&gt;&gt;
++ Wolf(health : int, maxHealth : int, attackPower : int, blockChance : int, exp : int) &lt;&lt;ctor&gt;&gt;
++ setHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setMaxHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setAttackPower(attackPower : int) : void &lt;&lt;override&gt;&gt;
 + setLevel() : int &lt;&lt;override&gt;&gt;
-+ getExp() : int &lt;override&gt;&gt;
++ setBlockChance(blockChance : int) : void &lt;&lt;override&gt;&gt;
++ setExp(exp : int) : void &lt;override&gt;&gt;
++ levelUp() : void &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -232,23 +223,24 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1022</x>
-      <y>1309</y>
-      <w>567</w>
-      <h>140</h>
+      <x>777</x>
+      <y>1456</y>
+      <w>574</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>Elf
 --
 
 --
 + Elf() &lt;&lt;ctor&gt;&gt;
-+ Elf(health : int, attackPower : int, attackSpeed : int, defense : int, exp : int) &lt;&lt;ctor&gt;&gt;
-+ setHealth() : int &lt;&lt;override&gt;&gt;
-+ setAttackPower() : int &lt;&lt;override&gt;&gt;
-+ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ setDefense() : int &lt;&lt;override&gt;&gt;
++ Elf(health : int, maxHealth : int, attackPower : int, blockChance : int, exp : int) &lt;&lt;ctor&gt;&gt;
++ setHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setMaxHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setAttackPower(attackPower : int) : void &lt;&lt;override&gt;&gt;
 + setLevel() : int &lt;&lt;override&gt;&gt;
-+ getExp() : int &lt;override&gt;&gt;
++ setBlockChance(blockChance : int) : void &lt;&lt;override&gt;&gt;
++ setExp(exp : int) : void &lt;override&gt;&gt;
++ levelUp() : void &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -257,18 +249,26 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1365</x>
-      <y>896</y>
-      <w>203</w>
-      <h>105</h>
+      <x>1106</x>
+      <y>973</y>
+      <w>245</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>/Hero/
 &lt;&lt;abstract&gt;&gt;
 --
 # exp : int
+# protected maxHealth : int
+# blockChance : int
 --
 + getExp() : int 
 + setExp(exp : int) : int
++ getMaxHealth() : int
++ setMaxHealth(maxHealth : int) : void
++ getBlockChance() : int
++ setBlockChance(blockChance : int)
+
+/+ levelUp() : void &lt;&lt;abstract&gt;&gt;/
 
 + toString : String &lt;&lt;override&gt;&gt;
 </panel_attributes>
@@ -277,19 +277,19 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1127</x>
-      <y>749</y>
+      <x>889</x>
+      <y>882</y>
       <w>252</w>
-      <h>161</h>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;340.0;10.0;340.0;210.0</additional_attributes>
+    <additional_attributes>10.0;10.0;340.0;10.0;340.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
-      <y>749</y>
+      <x>378</x>
+      <y>882</y>
       <w>266</w>
       <h>147</h>
     </coordinates>
@@ -299,30 +299,30 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1561</x>
-      <y>931</y>
-      <w>63</w>
+      <x>1344</x>
+      <y>1064</y>
+      <w>42</w>
       <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1603</x>
-      <y>931</y>
+      <x>1365</x>
+      <y>1064</y>
       <w>21</w>
-      <h>441</h>
+      <h>455</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;610.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;630.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1582</x>
-      <y>1344</y>
+      <x>1344</x>
+      <y>1491</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -332,8 +332,8 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1582</x>
-      <y>1204</y>
+      <x>1344</x>
+      <y>1337</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -343,8 +343,8 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1582</x>
-      <y>1050</y>
+      <x>1344</x>
+      <y>1183</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -354,21 +354,22 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>497</x>
-      <y>1134</y>
-      <w>497</w>
-      <h>112</h>
+      <x>175</x>
+      <y>1281</y>
+      <w>595</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Troll
 --
 
 --
 + Troll() &lt;&lt;ctor&gt;&gt;
-+ Troll(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ setHealth() : int &lt;&lt;override&gt;&gt;
-+ setAttackPower() : int &lt;&lt;override&gt;&gt;
-+ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ setDefense() : int &lt;&lt;override&gt;&gt;
++ Troll(health : int, attackPower : int,experienceWorth : int, hitNum : int, level : int) &lt;&lt;ctor&gt;&gt;
++ setHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setAttackPower(attackPower : int) : void &lt;&lt;override&gt;&gt;
++ setExperienceWorth(experienceWorth : int) : void &lt;&lt;override&gt;&gt;
++ setHitNum(hitNum : int) : void &lt;&lt;override&gt;&gt;
++ setLevel(level : int) : void &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -377,21 +378,22 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>497</x>
-      <y>1253</y>
-      <w>497</w>
-      <h>112</h>
+      <x>175</x>
+      <y>1414</y>
+      <w>595</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Ogre
 --
 
 --
 + Ogre &lt;&lt;ctor&gt;&gt;
-+ Ogre(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ setHealth() : int &lt;&lt;override&gt;&gt;
-+ setAttackPower() : int &lt;&lt;override&gt;&gt;
-+ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ setDefense() : int &lt;&lt;override&gt;&gt;
++ Ogre(health : int, attackPower : int,experienceWorth : int, hitNum : int, level : int) &lt;&lt;ctor&gt;&gt;
++ setHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setAttackPower(attackPower : int) : void &lt;&lt;override&gt;&gt;
++ setExperienceWorth(experienceWorth : int) : void &lt;&lt;override&gt;&gt;
++ setHitNum(hitNum : int) : void &lt;&lt;override&gt;&gt;
++ setLevel(level : int) : void &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
@@ -400,9 +402,9 @@ _# level : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>497</x>
-      <y>1491</y>
-      <w>497</w>
+      <x>175</x>
+      <y>1666</y>
+      <w>721</w>
       <h>126</h>
     </coordinates>
     <panel_attributes>Dragon
@@ -410,14 +412,13 @@ _# level : int_
 + damageModifier : int
 --
 + Dragon() &lt;&lt;ctor&gt;&gt;
-+ Dragon(health : int, attackPower : int, attackSpeed : int, defense : int) &lt;&lt;ctor&gt;&gt;
-+ setHealth() : int &lt;&lt;override&gt;&gt;
-+ setAttackPower() : int &lt;&lt;override&gt;&gt;
-+ setAttackSpeed() : int &lt;&lt;override&gt;&gt;
-+ setDefense() : int &lt;&lt;override&gt;&gt;
++ Dragon(health : int, attackPower : int,experienceWorth : int, hitNum : int, level : int, damageModifier : int) &lt;&lt;ctor&gt;&gt;
++ setHealth(health : int) : void &lt;&lt;override&gt;&gt;
++ setAttackPower(attackPower : int) : void &lt;&lt;override&gt;&gt;
++ setExperienceWorth(experienceWorth : int) : void &lt;&lt;override&gt;&gt;
++ setHitNum(hitNum : int) : void &lt;&lt;override&gt;&gt;
++ setLevel(level : int) : void &lt;&lt;override&gt;&gt;
 + attack(roll : int) : int &lt;&lt;override&gt;&gt;
-+ getDamageModifier() : int
-+ setDamageModifier(damageModifier : int) : void
 
 + toString : String &lt;&lt;override&gt;&gt;</panel_attributes>
     <additional_attributes/>
@@ -425,8 +426,8 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>910</y>
+      <x>147</x>
+      <y>1043</y>
       <w>21</w>
       <h>511</h>
     </coordinates>
@@ -436,154 +437,131 @@ _# level : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>1400</y>
-      <w>63</w>
+      <x>147</x>
+      <y>1575</y>
+      <w>42</w>
       <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>1281</y>
-      <w>63</w>
+      <x>147</x>
+      <y>1442</y>
+      <w>42</w>
       <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>1162</y>
-      <w>63</w>
+      <x>147</x>
+      <y>1309</y>
+      <w>42</w>
       <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>1043</y>
-      <w>63</w>
+      <x>147</x>
+      <y>1176</y>
+      <w>42</w>
       <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>903</y>
-      <w>63</w>
+      <x>147</x>
+      <y>1036</y>
+      <w>126</w>
       <h>28</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 </panel_attributes>
-    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>497</x>
-      <y>882</y>
-      <w>126</w>
+      <x>259</x>
+      <y>1015</y>
+      <w>315</w>
       <h>119</h>
     </coordinates>
     <panel_attributes>Enemy
 &lt;&lt;abstract&gt;&gt;
 --
-
+# experienceWorth : int
 --
-</panel_attributes>
++ getExperienceWorth() : int
++ setExperienceWorth(experienceWorth : int) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>1393</y>
-      <w>63</w>
-      <h>154</h>
+      <x>147</x>
+      <y>1533</y>
+      <w>42</w>
+      <h>203</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;200.0;70.0;200.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0;40.0;270.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
-      <y>399</y>
-      <w>413</w>
-      <h>273</h>
+      <x>378</x>
+      <y>595</y>
+      <w>420</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 &lt;&lt;instance of&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0;570.0;140.0;570.0;370.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;580.0;50.0;580.0;280.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1008</x>
-      <y>399</y>
+      <x>777</x>
+      <y>252</y>
       <w>21</w>
-      <h>112</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1008</x>
-      <y>483</y>
-      <w>259</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-&lt;&lt;instance of&gt;&gt;</panel_attributes>
-    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1008</x>
-      <y>119</y>
-      <w>21</w>
-      <h>168</h>
+      <h>175</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;230.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1008</x>
-      <y>189</y>
-      <w>406</w>
-      <h>98</h>
+      <x>357</x>
+      <y>273</y>
+      <w>441</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;instance of&gt;&gt;</panel_attributes>
-    <additional_attributes>480.0;120.0;480.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0;610.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>595</x>
-      <y>189</y>
-      <w>434</w>
-      <h>98</h>
+      <x>777</x>
+      <y>539</y>
+      <w>21</w>
+      <h>105</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
-&lt;&lt;instance of&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0;600.0;10.0</additional_attributes>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
 </diagram>

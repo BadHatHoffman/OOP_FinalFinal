@@ -9,9 +9,12 @@ public class Orc extends Enemy {
         super.setHitNum(12);
     }
 
-    public Orc(int health, int attackPower, int attackSpeed, int defense){
+    public Orc(int health, int attackPower, int experienceWorth, int hitNum, int level){
         setHealth(health);
         setAttackPower(attackPower);
+        setExperienceWorth(experienceWorth);
+        setHitNum(hitNum);
+        setLevel(level);
 
     }
 
@@ -23,6 +26,16 @@ public class Orc extends Enemy {
     @Override
     public void setAttackPower(int attackPower) {
         super.setAttackPower(attackPower);
+    }
+
+    @Override
+    public void setExperienceWorth(int experienceWorth) {
+        super.setExperienceWorth(experienceWorth);
+    }
+
+    @Override
+    public void setHitNum(int hitNum) {
+        super.setHitNum(hitNum);
     }
 
     @Override

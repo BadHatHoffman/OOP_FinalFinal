@@ -6,16 +6,8 @@ public abstract class Character {
     protected int health;
     protected int attackPower;
     protected int level;
-    protected int hitNum;
+
     public Random rng = new Random();
-
-    public int getHitNum() {
-        return hitNum;
-    }
-
-    public void setHitNum(int hitNum) {
-        this.hitNum = hitNum;
-    }
 
     public int getHealth() {
         return health;
