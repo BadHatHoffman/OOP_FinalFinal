@@ -36,9 +36,9 @@ public class DungeonMenu extends AppCompatActivity {
     private Button attackButton, continueButton, potionButton;
     private int enemyCounter = 0;
     private int potions = 3;
-    Hero player;
-    Enemy enemy = new Gnome();
-    Enemy[] dungeonEnemy = {new Gnome(), new Troll(), new Ogre(), new Orc(), new Dragon()};
+    private Hero player;
+    private Enemy enemy = new Gnome();
+    private Enemy[] dungeonEnemy = {new Gnome(), new Troll(), new Ogre(), new Orc(), new Dragon()};
 
 
     @Override

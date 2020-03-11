@@ -11,18 +11,14 @@ public class Dragon extends Enemy {
         super.setHitNum(10);
 
     }
-    public Dragon(int health, int attackPower, int attackSpeed, int defense, int damageModifier){
+    public Dragon(int health, int attackPower, int experienceWorth, int hitNum, int level, int damageModifier){
         setHealth(health);
         setAttackPower(attackPower);
+        setExperienceWorth(experienceWorth);
+        setHitNum(hitNum);
+        setLevel(level);
         setDamageModifier(damageModifier);
-    }
 
-    public int getDamageModifier() {
-        return damageModifier;
-    }
-
-    public void setDamageModifier(int damageModifier) {
-        this.damageModifier = damageModifier;
     }
 
     @Override
@@ -35,6 +31,15 @@ public class Dragon extends Enemy {
         super.setAttackPower(attackPower);
     }
 
+    @Override
+    public void setExperienceWorth(int experienceWorth) {
+        super.setExperienceWorth(experienceWorth);
+    }
+
+    @Override
+    public void setHitNum(int hitNum) {
+        super.setHitNum(hitNum);
+    }
 
     @Override
     public void setLevel(int level) {
@@ -46,9 +51,18 @@ public class Dragon extends Enemy {
         return 0;
     }
 
+    public int getDamageModifier() {
+        return damageModifier;
+    }
+
+    public void setDamageModifier(int damageModifier) {
+        this.damageModifier = damageModifier;
+    }
+
     @Override
     public String toString() {
         return new StringBuilder(super.toString()).append("\n").toString();
     }
+
 
 }

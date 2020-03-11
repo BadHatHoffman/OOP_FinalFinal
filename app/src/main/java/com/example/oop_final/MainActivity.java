@@ -19,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void openingScreen() {
-
-    }
     public void beginClick(View v){
         Intent intent = new Intent(this, CharacterMenu.class);
         intent.putExtras(bundle);
