@@ -3,6 +3,7 @@ package com.example.oop_final;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -43,6 +44,9 @@ public class DungeonMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MediaPlayer musica= MediaPlayer.create(DungeonMenu.this,R.raw.dungeon_music);
+        musica.isLooping();
+        musica.start();
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dungeon_menu);

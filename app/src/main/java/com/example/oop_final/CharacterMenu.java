@@ -3,6 +3,7 @@ package com.example.oop_final;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -21,6 +22,9 @@ public class CharacterMenu extends AppCompatActivity {
     private TextView wolfTxt, elfTxt, humanTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MediaPlayer musica= MediaPlayer.create(CharacterMenu.this,R.raw.character_music);
+        musica.isLooping();
+        musica.start();
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_menu);
