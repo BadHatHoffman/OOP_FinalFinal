@@ -31,14 +31,14 @@ import models.Wolf;
 public class DungeonMenu extends AppCompatActivity {
     public Bundle bundles;
     private boolean wolfPlayer, elfPlayer, humanPlayer;
-    private GifImageView elfImg, humanImg, wolfImg;
+    private GifImageView elfImg, humanImg, wolfImg, dragon, troll, ogre, orc, gnome;
     private TextView enemyHealth, characterStats, storyTxt;
     private Button attackButton, continueButton, potionButton;
-    private int enemyCounter = 0;
+    private int storyPlace = 0;
     private int potions = 3;
     Hero player;
-    Enemy enemy = new Gnome();
-    Enemy[] dungeonEnemy = {new Gnome(), new Troll(), new Ogre(), new Orc(), new Dragon()};
+    Enemy enemy;
+
 
 
 
@@ -47,7 +47,11 @@ public class DungeonMenu extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dungeon_menu);
-        //enemyImg = findViewById(R.id.enemyChar);
+        dragon = findViewById(R.id.dragon);
+        orc = findViewById(R.id.orc);
+        ogre = findViewById(R.id.ogre);
+        troll = findViewById(R.id.troll);
+        gnome = findViewById(R.id.gnome);
         elfImg = findViewById(R.id.elfChar);
         humanImg = findViewById(R.id.humanChar);
         wolfImg = findViewById(R.id.wolfChar);
@@ -62,6 +66,11 @@ public class DungeonMenu extends AppCompatActivity {
         potionButton = findViewById(R.id.potionBttn);
         storyTxt = findViewById(R.id.storyTxt);
         continueButton.setEnabled(false);
+        dragon.setVisibility(View.INVISIBLE);
+        orc.setVisibility(View.INVISIBLE);
+        ogre.setVisibility(View.INVISIBLE);
+        troll.setVisibility(View.INVISIBLE);
+        gnome.setVisibility(View.INVISIBLE);
 
         if(wolfPlayer){
            characterStats.setText(new Wolf().toString());
@@ -84,12 +93,19 @@ public class DungeonMenu extends AppCompatActivity {
             humanImg.setVisibility(View.VISIBLE);
             player = new Human();
         }
-        enemyHealth.setText(enemy.toString());
+        displayStory();
     }
+
+
+
     public void onClick_Attack(View v){
         playerAttacks();
         enemyHealth.setText(enemy.toString());
-        enemyAttacks();
+        if(enemy.getHealth() <= 0) {
+            enemyDeath();
+        }else {
+            enemyAttacks();
+        }
         characterStats.setText(player.toString());
     }
 
@@ -98,7 +114,7 @@ public class DungeonMenu extends AppCompatActivity {
     public void onClick_Potion(View v){
         //TODO Kayla
         potions--;
-        potionButton.setText("Health: " + potions);
+        potionButton.setText("Potion  : " + potions);
         if(potions >= 0){
             if (player.getHealth() + 50 > player.getMaxHealth()){
                 player.setHealth(player.getMaxHealth());
@@ -112,12 +128,42 @@ public class DungeonMenu extends AppCompatActivity {
         characterStats.setText(player.toString());
     }
 
-    public void onClick_Continue(View v){
+    public void onClick_Continue(View v) {
         //TODO Ethan
         attackButton.setEnabled(true);
         potionButton.setEnabled(true);
         continueButton.setEnabled(false);
-        //textId.setText("");
+        continueButton.setVisibility(View.INVISIBLE);
+        storyTxt.setText("");
+        attackButton.setVisibility(View.VISIBLE);
+        potionButton.setVisibility(View.VISIBLE);
+        enemyHealth.setVisibility(View.VISIBLE);
+        if (enemy == null) {
+            enemy = new Gnome();
+            gnome.setVisibility(View.VISIBLE);
+            enemyHealth.setText(enemy.toString());
+            enemyHealth.setVisibility(View.VISIBLE);
+        } else if (enemy instanceof Gnome) {
+            enemy = new Troll();
+            troll.setVisibility(View.VISIBLE);
+            enemyHealth.setText(enemy.toString());
+            enemyHealth.setVisibility(View.VISIBLE);
+        } else if (enemy instanceof Troll){
+            enemy = new Ogre();
+            ogre.setVisibility(View.VISIBLE);
+            enemyHealth.setText(enemy.toString());
+            enemyHealth.setVisibility(View.VISIBLE);
+        }else if(enemy instanceof Ogre){
+            enemy = new Orc();
+            orc.setVisibility(View.VISIBLE);
+            enemyHealth.setText(enemy.toString());
+            enemyHealth.setVisibility(View.VISIBLE);
+        }else if(enemy instanceof Orc){
+            enemy = new Dragon();
+            dragon.setVisibility(View.VISIBLE);
+            enemyHealth.setText(enemy.toString());
+            enemyHealth.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -126,77 +172,126 @@ public class DungeonMenu extends AppCompatActivity {
         if(player.getExp()>=100){
             player.setExp(player.getExp()-100);
             player.levelUp();
-            //textId.setText("Level Up! New Stats \n" +player.toString());
+            storyTxt.setText("Level Up! New Stats \n" +player.toString());
         }
+    }
+
+    public void playerDeath(){
+        player.setHealth(0);
+        storyTxt.setText("Game Over!!");
+        attackButton.setEnabled(false);
+        continueButton.setEnabled(false);
+        potionButton.setEnabled(false);
+        attackButton.setVisibility(View.INVISIBLE);
+        potionButton.setVisibility(View.INVISIBLE);
+        continueButton.setVisibility(View.INVISIBLE);
     }
 
     public void enemyDeath(){
-<<<<<<< HEAD
-        
-=======
         //TODO KAT
-        player.setExp(player.getExp() + enemy.getExperienceWorth());
-        checkLevelUP();
-        enemyCounter++;
-
-        if (enemyCounter > 4){
-            storyTxt.setText("Testing, you win!");
-        } else{
-            enemy = dungeonEnemy[enemyCounter];
-        }
-
-
-
-        continueButton.setEnabled(true);
-        attackButton.setEnabled(false);
-        potionButton.setEnabled(false);
->>>>>>> 1a39c57c582320615b8feff0d346ac9e29161acc
+            player.setExp(player.getExp() + enemy.getExperienceWorth());
+            checkLevelUP();
+            storyTxt.setText("");
+            storyPlace++;
+            displayStory();
     }
 
     public void displayStory(){
-        //TODO KAT
+        switch(storyPlace){
+            case 0:
+                setStoryVisibility();
+                storyTxt.setText("You wish to capture the Dragon who lives in the forest cave and present him as a pet to your lover. You embark on your journey alone, keen " +
+                        "to prove your strength. You begin your descent into the cave. About 100feet into the cave, you encounter an angry Gnome telling you you dont belong, he swings a hammer at you.");
+                break;
+            case 1:
+                setStoryVisibility();
+                storyTxt.setText("After defeating the Gnome, you trudge further into the dungeon. As you walk " +
+                        "along the cold dark tunnels you bump into the walls and trip over cracks in the ground, you feel yourself bump into " +
+                        "something warm. You feel drool drip onto your shoulder, the smell is awful. You light a torch and see none other than a Troll!");
+                //gnome
+                break;
+            case 2:
+                setStoryVisibility();
+                storyTxt.setText("You've escaped the Troll! As you continue down the dark tunnels of the cave you realize its " +
+                        "beginning to get lighter. You stumble upon a medium sized opening, its circular in shape. In the " +
+                        "middle is a camp, a single Ogre is cooking the group dinner. He spots you and decides you're to be the next meal.");
+
+                //troll
+                break;
+            case 3:
+                setStoryVisibility();
+                storyTxt.setText("You defeat the Ogre, you quickly realize you need to leave " +
+                        "the area before their friends come back. The tunnel you run into gets progressively tighter to move through then suddenly it becomes " +
+                        "an underground ravine. You work your way down the twisting rocks, at the bottom you find a large" +
+                        " green creature blocking your path. As you approach you realize its a sleeping Orc, it awakes angry and startled and attacks you!");
+                //ogre
+                break;
+            case 4:
+                setStoryVisibility();
+                storyTxt.setText("Once you've defeated the Orc you follow a path of small pieces of gold. " +
+                        "you must be on the right path to the Dragon. You continue on " +
+                        "your path anxious and alert. You can see the opening leading into a brightly lit " +
+                        "treasure room, upon the pile of gold lays a dragon. As you approach he awakens waiting for you angrily. ");
+                //orc
+                break;
+            case 5:
+                setStoryVisibility();
+                storyTxt.setText("You have defeated the Dragon! Beaten, the Dragon allows you to claim him if he can continue to " +
+                        "live in his cave. He will grant you and your lover passage to see him whenever you please. He reminds you however he will eventually seek freedom and he will" +
+                        " not underestimate you again, he will use more than 30% of his power next time. ");
+                continueButton.setVisibility(View.INVISIBLE);
+                continueButton.setEnabled(false);
+                //dragon
+                break;
+        }
+    }
+
+    public void setStoryVisibility(){
+        enemyHealth.setVisibility(View.INVISIBLE);
+        attackButton.setVisibility(View.INVISIBLE);
+        potionButton.setVisibility(View.INVISIBLE);
+        continueButton.setVisibility(View.VISIBLE);
+        continueButton.setEnabled(true);
+        attackButton.setEnabled(false);
+        potionButton.setEnabled(false);
+        dragon.setVisibility(View.INVISIBLE);
+        orc.setVisibility(View.INVISIBLE);
+        ogre.setVisibility(View.INVISIBLE);
+        troll.setVisibility(View.INVISIBLE);
+        gnome.setVisibility(View.INVISIBLE);
     }
 
     public void playerAttacks(){
         int playerRoll = player.roll(1,20);
 
-
-        if(player.getHealth() <=0){
-            player.setHealth(0);
-            storyTxt.setText("Game Over!!");
-            attackButton.setEnabled(false);
-            continueButton.setEnabled(false);
-            potionButton.setEnabled(false);
-        }
-
-        if (playerRoll<8){
-            storyTxt.setText("You missed!!");
-        } else if (playerRoll <= 19){
-            enemy.setHealth(enemy.getHealth() - player.getAttackPower());
-            storyTxt.setText("You hit the " + enemy.getClass().getSimpleName() + " for " + player.getAttackPower() + " damage!");
-        } else {
-            enemy.setHealth(enemy.getHealth() - player.getAttackPower()*2);
-            storyTxt.setText("Critical hit! You do  " + player.getAttackPower()*2 +" damage to the " + enemy.getClass().getSimpleName());
-        }
+            if (playerRoll < 8) {
+                storyTxt.setText("You missed!!");
+            } else if (playerRoll <= 19) {
+                enemy.setHealth(enemy.getHealth() - player.getAttackPower());
+                storyTxt.setText("You hit the " + enemy.getClass().getSimpleName() + " for " + player.getAttackPower() + " damage!");
+            } else {
+                enemy.setHealth(enemy.getHealth() - player.getAttackPower() * 2);
+                storyTxt.setText("Critical hit! You do  " + player.getAttackPower() * 2 + " damage to the " + enemy.getClass().getSimpleName());
+            }
 
     }
     public void enemyAttacks(){
         int enemyRoll = enemy.roll(1,20);
 
-
-        if(enemy.getHealth() <= 0){
-            enemyDeath();
-        }else if(enemyRoll>10){
-            if(enemy.rng.nextInt(100)<player.getBlockChance()){
-                player.setHealth((player.getHealth() - enemy.getAttackPower()/2));
-                storyTxt.append("\n\n You blocked and take " + enemy.getAttackPower()/2 + " damage.");
+        if(player.getHealth() <=0){
+            playerDeath();
+        }else {
+            if (enemyRoll > 10) {
+                if (enemy.rng.nextInt(100) < player.getBlockChance()) {
+                    player.setHealth((player.getHealth() - enemy.getAttackPower() / 2));
+                    storyTxt.append("\n\n You blocked and take " + enemy.getAttackPower() / 2 + " damage.");
+                } else {
+                    player.setHealth(player.getHealth() - enemy.getAttackPower());
+                    storyTxt.append("\n\nThe " + enemy.getClass().getSimpleName() + " hits you for " + enemy.getAttackPower() + " damage!");
+                }
             } else {
-                player.setHealth(player.getHealth() - enemy.getAttackPower());
-                storyTxt.append("\n\nThe " + enemy.getClass().getSimpleName() + " hits you for " + enemy.getAttackPower() + " damage!");
+                storyTxt.append("\n\nYou dodged the attack!");
             }
-        } else {
-            storyTxt.append("\n\nYou dodged the attack!");
         }
-
     }
 }

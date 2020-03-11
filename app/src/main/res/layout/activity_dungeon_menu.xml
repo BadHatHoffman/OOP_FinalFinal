@@ -8,11 +8,11 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/dragon"
-        android:layout_width="311dp"
-        android:layout_height="193dp"
+        android:layout_width="254dp"
+        android:layout_height="252dp"
         android:layout_marginStart="25dp"
-        android:background="@drawable/undead_bossman"
-        android:src="@drawable/undead_bossman"
+        android:background="@drawable/boss_man"
+        android:src="@drawable/boss_man"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,21 +20,20 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/orc"
-        android:layout_width="120dp"
-        android:layout_height="154dp"
+        android:layout_width="237dp"
+        android:layout_height="227dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="36dp"
         android:background="@drawable/orc"
         android:src="@drawable/orc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/ogre"
-        android:layout_width="232dp"
-        android:layout_height="163dp"
+        android:layout_width="293dp"
+        android:layout_height="234dp"
         android:layout_marginStart="25dp"
         android:background="@drawable/ogre"
         android:src="@drawable/ogre"
@@ -45,10 +44,9 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/troll"
-        android:layout_width="173dp"
-        android:layout_height="166dp"
+        android:layout_width="212dp"
+        android:layout_height="213dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="24dp"
         android:background="@drawable/troll"
         android:src="@drawable/troll"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,10 +68,10 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/wolfChar"
-        android:layout_width="138dp"
-        android:layout_height="101dp"
+        android:layout_width="162dp"
+        android:layout_height="117dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="456dp"
+        android:layout_marginTop="496dp"
         android:layout_marginEnd="137dp"
         android:background="@drawable/wolf"
         android:src="@drawable/wolf"
@@ -91,10 +89,10 @@
         android:src="@drawable/elf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724" />
+        app:layout_constraintVertical_bias="0.798" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/humanChar"
@@ -108,20 +106,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
+        app:layout_constraintVertical_bias="0.841" />
 
     <Button
         android:id="@+id/attackBttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="72dp"
         android:layout_marginBottom="10dp"
         android:onClick="onClick_Attack"
         android:text="Attack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wolfChar"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/potionBttn"
@@ -136,19 +134,23 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/attackBttn"
         app:layout_constraintTop_toBottomOf="@+id/playerStats"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/storyTxt"
-        android:layout_width="406dp"
-        android:layout_height="195dp"
+        android:layout_width="413dp"
+        android:layout_height="196dp"
+        android:background="#A8070101"
+        android:fontFamily="@font/almendra_sc"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.47" />
 
     <Button
         android:id="@+id/continueBttn"
@@ -158,10 +160,10 @@
         android:text="Continue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/storyTxt"
-        app:layout_constraintVertical_bias="0.752" />
+        app:layout_constraintVertical_bias="0.772" />
 
     <TextView
         android:id="@+id/enemyHealth"
@@ -190,9 +192,9 @@
         android:textColor="#FFFCFC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toEndOf="@+id/wolfChar"
         app:layout_constraintTop_toBottomOf="@+id/storyTxt"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintVertical_bias="0.286" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
