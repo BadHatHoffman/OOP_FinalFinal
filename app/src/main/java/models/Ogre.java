@@ -3,8 +3,8 @@ package models;
 public class Ogre extends Enemy {
 
     public Ogre(){
-        super.setHealth(40);
-        super.setAttackPower(15);
+        super.setHealth(rng.nextInt(20)+50);
+        super.setAttackPower(rng.nextInt(3)+12);
         super.setExperienceWorth(65);
         super.setHitNum(10);
     }

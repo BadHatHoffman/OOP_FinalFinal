@@ -3,8 +3,8 @@ package models;
 public class Troll extends Enemy {
 
     public Troll(){
-        super.setHealth(30);
-        super.setAttackPower(10);
+        super.setHealth(rng.nextInt(20)+50);
+        super.setAttackPower(rng.nextInt(3)+10);
         super.setExperienceWorth(40);
         super.setHitNum(7);
 

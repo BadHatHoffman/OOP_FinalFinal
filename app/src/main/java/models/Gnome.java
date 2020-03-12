@@ -3,8 +3,8 @@ package models;
 public class Gnome extends Enemy {
 
     public Gnome(){
-        super.setHealth(20);
-        super.setAttackPower(5);
+        super.setHealth(rng.nextInt(20)+40);
+        super.setAttackPower(rng.nextInt(2)+5);
         super.setExperienceWorth(20);
         super.setHitNum(5);
     }
