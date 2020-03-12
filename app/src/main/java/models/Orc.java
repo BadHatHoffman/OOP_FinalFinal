@@ -3,8 +3,8 @@ package models;
 public class Orc extends Enemy {
 
     public Orc(){
-        super.setHealth(40);
-        super.setAttackPower(15);
+        super.setHealth(rng.nextInt(20)+50);
+        super.setAttackPower(rng.nextInt(3)+12);
         super.setExperienceWorth(75);
         super.setHitNum(12);
     }

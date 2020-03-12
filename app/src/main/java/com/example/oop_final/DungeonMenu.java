@@ -33,7 +33,7 @@ public class DungeonMenu extends AppCompatActivity {
     public Bundle bundles;
     private boolean wolfPlayer, elfPlayer, humanPlayer;
     private GifImageView elfImg, humanImg, wolfImg, dragon, troll, ogre, orc, gnome;
-    private TextView enemyHealth, characterStats, storyTxt;
+    private TextView enemyHealth, characterStats, storyTxt, levelUp;
     private Button attackButton, continueButton, potionButton;
     private int storyPlace = 0;
     private int potions = 3;
@@ -68,6 +68,7 @@ public class DungeonMenu extends AppCompatActivity {
         continueButton = findViewById(R.id.continueBttn);
         potionButton = findViewById(R.id.potionBttn);
         storyTxt = findViewById(R.id.storyTxt);
+        levelUp = findViewById(R.id.levelUp);
         continueButton.setEnabled(false);
         dragon.setVisibility(View.INVISIBLE);
         orc.setVisibility(View.INVISIBLE);
@@ -167,6 +168,7 @@ public class DungeonMenu extends AppCompatActivity {
             enemyHealth.setText(enemy.toString());
             enemyHealth.setVisibility(View.VISIBLE);
         }
+        levelUp.setText("");
 
     }
 
@@ -175,7 +177,7 @@ public class DungeonMenu extends AppCompatActivity {
         if(player.getExp()>=100){
             player.setExp(player.getExp()-100);
             player.levelUp();
-            storyTxt.setText("Level Up! New Stats \n" +player.toString());
+            levelUp.setText("Level Up! New Stats and full health!\n");
         }
     }
 
