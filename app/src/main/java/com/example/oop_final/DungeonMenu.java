@@ -45,7 +45,7 @@ public class DungeonMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MediaPlayer musica= MediaPlayer.create(DungeonMenu.this,R.raw.dungeon_music);
-        musica.isLooping();
+        musica.setLooping(true);
         musica.start();
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
@@ -204,7 +204,7 @@ public class DungeonMenu extends AppCompatActivity {
             case 0:
                 setStoryVisibility();
                 storyTxt.setText("You wish to capture the Dragon who lives in the forest cave and present him as a pet to your lover. You embark on your journey alone, keen " +
-                        "to prove your strength. You begin your descent into the cave. About 100feet into the cave, you encounter an angry Gnome telling you you dont belong, he swings a hammer at you.");
+                        "to prove your strength. You begin your descent into the cave. About 100 feet into the cave, you encounter an angry Gnome telling you you dont belong, he swings a hammer at you.");
                 break;
             case 1:
                 setStoryVisibility();

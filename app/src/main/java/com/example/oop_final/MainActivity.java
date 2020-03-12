@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MediaPlayer musica= MediaPlayer.create(MainActivity.this,R.raw.opening_music);
-        musica.isLooping();
+        musica.setLooping(true);
         musica.start();
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);

@@ -23,7 +23,7 @@ public class CharacterMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MediaPlayer musica= MediaPlayer.create(CharacterMenu.this,R.raw.character_music);
-        musica.isLooping();
+        musica.setLooping(true);
         musica.start();
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
