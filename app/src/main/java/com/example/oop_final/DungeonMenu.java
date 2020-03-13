@@ -2,6 +2,7 @@ package com.example.oop_final;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import models.Human;
 import models.Wolf;
 
 public class DungeonMenu extends AppCompatActivity {
+    //Class accessible variables
     public Bundle bundles;
     private boolean wolfPlayer, elfPlayer, humanPlayer;
     private GifImageView elfImg, humanImg, wolfImg, dragon, troll, ogre, orc, gnome;
@@ -39,16 +41,21 @@ public class DungeonMenu extends AppCompatActivity {
     private int potions = 3;
     Hero player;
     Enemy enemy;
+    public Bundle bundle = new Bundle();
 
 
 
     @Override
+    //Sets the screen to the dungeon menu
     protected void onCreate(Bundle savedInstanceState) {
         MediaPlayer musica= MediaPlayer.create(DungeonMenu.this,R.raw.dungeon_music);
         musica.setLooping(true);
         musica.start();
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
+
+        //Find all of the components
         setContentView(R.layout.activity_dungeon_menu);
         dragon = findViewById(R.id.dragon);
         orc = findViewById(R.id.orc);
@@ -76,6 +83,7 @@ public class DungeonMenu extends AppCompatActivity {
         troll.setVisibility(View.INVISIBLE);
         gnome.setVisibility(View.INVISIBLE);
 
+        //Sets the dungeon player to the selected one from character select menu
         if(wolfPlayer){
            characterStats.setText(new Wolf().toString());
            elfImg.setVisibility(View.INVISIBLE);
@@ -100,8 +108,7 @@ public class DungeonMenu extends AppCompatActivity {
         displayStory();
     }
 
-
-
+    //Players attack method/enemy death check
     public void onClick_Attack(View v){
         playerAttacks();
         enemyHealth.setText(enemy.toString());
@@ -114,11 +121,12 @@ public class DungeonMenu extends AppCompatActivity {
     }
 
 
-
+    //Sets potions/makes potions usable
     public void onClick_Potion(View v){
         //TODO Kayla
-        potions--;
+        potions--; //Subtracts potions when button clicked
         potionButton.setText("Potion  : " + potions);
+        //Enables/disable button
         if(potions >= 0){
             if (player.getHealth() + 50 > player.getMaxHealth()){
                 player.setHealth(player.getMaxHealth());
@@ -132,6 +140,8 @@ public class DungeonMenu extends AppCompatActivity {
         characterStats.setText(player.toString());
     }
 
+
+    //Allows the user to progress past the story to the next fight
     public void onClick_Continue(View v) {
         //TODO Ethan
         attackButton.setEnabled(true);
@@ -172,6 +182,8 @@ public class DungeonMenu extends AppCompatActivity {
 
     }
 
+
+    //Checks whether the exp = 100 and levels up the player
     public void checkLevelUP() {
         //TODO Kayla
         if(player.getExp()>=100){
@@ -181,6 +193,7 @@ public class DungeonMenu extends AppCompatActivity {
         }
     }
 
+    //Checks if the players health hits 0 and displays game over to them
     public void playerDeath(){
         player.setHealth(0);
         storyTxt.setText("Game Over!!");
@@ -192,6 +205,8 @@ public class DungeonMenu extends AppCompatActivity {
         continueButton.setVisibility(View.INVISIBLE);
     }
 
+
+    //Checks if the enemies health hits 0, then distributes exp
     public void enemyDeath(){
         //TODO KAT
             player.setExp(player.getExp() + enemy.getExperienceWorth());
@@ -201,6 +216,7 @@ public class DungeonMenu extends AppCompatActivity {
             displayStory();
     }
 
+    //Displays the story to the player
     public void displayStory(){
         switch(storyPlace){
             case 0:
@@ -251,6 +267,8 @@ public class DungeonMenu extends AppCompatActivity {
         }
     }
 
+
+    //Sets the visibility of buttons and enemies for the story to display
     public void setStoryVisibility(){
         enemyHealth.setVisibility(View.INVISIBLE);
         attackButton.setVisibility(View.INVISIBLE);
@@ -266,6 +284,7 @@ public class DungeonMenu extends AppCompatActivity {
         gnome.setVisibility(View.INVISIBLE);
     }
 
+    //Rolls a die for the players damage
     public void playerAttacks(){
         int playerRoll = player.roll(1,20);
 
@@ -280,6 +299,8 @@ public class DungeonMenu extends AppCompatActivity {
             }
 
     }
+
+    //Rolls the enemies die for attack damage
     public void enemyAttacks(){
         int enemyRoll = enemy.roll(1,20);
 

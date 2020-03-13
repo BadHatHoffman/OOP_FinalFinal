@@ -26,6 +26,7 @@ public class Dragon extends Enemy {
         super.setHealth(health);
     }
 
+
     @Override
     public void setAttackPower(int attackPower) {
         super.setAttackPower(attackPower);

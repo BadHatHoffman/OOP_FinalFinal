@@ -15,12 +15,16 @@ import models.Wolf;
 import pl.droidsonroids.gif.GifImageView;
 
 public class CharacterMenu extends AppCompatActivity {
+
+    //Class wide variables
     public Bundle bundle = new Bundle();
     private boolean wolfValue = false;
     private boolean elfValue = false;
     private boolean humanValue = false;
     private TextView wolfTxt, elfTxt, humanTxt;
     @Override
+
+    //Sets the Activity to
     protected void onCreate(Bundle savedInstanceState) {
         MediaPlayer musica= MediaPlayer.create(CharacterMenu.this,R.raw.character_music);
         musica.setLooping(true);
@@ -36,7 +40,7 @@ public class CharacterMenu extends AppCompatActivity {
         humanTxt.setText(new Human().toString());
     }
 
-
+    //Sets the wolf image by setting wolf to true
     public void wolfClick(View v){
         wolfValue = true;
         bundle.putBoolean("WOLF", wolfValue);
@@ -45,6 +49,7 @@ public class CharacterMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Sets the elf image by setting wolf to true
     public void elfClick(View v){
         elfValue = true;
         bundle.putBoolean("ELF",  elfValue);
@@ -53,6 +58,7 @@ public class CharacterMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Sets the human image by setting wolf to true
     public void humanClick(View v){
         humanValue = true;
         bundle.putBoolean("HUMAN",  humanValue);
