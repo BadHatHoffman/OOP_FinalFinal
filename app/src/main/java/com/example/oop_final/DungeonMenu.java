@@ -36,7 +36,7 @@ public class DungeonMenu extends AppCompatActivity {
     private boolean wolfPlayer, elfPlayer, humanPlayer;
     private GifImageView elfImg, humanImg, wolfImg, dragon, troll, ogre, orc, gnome;
     private TextView enemyHealth, characterStats, storyTxt, levelUp;
-    private Button attackButton, continueButton, potionButton;
+    private Button attackButton, continueButton, potionButton, resetButton;
     private int storyPlace = 0;
     private int potions = 3;
     Hero player;
@@ -74,6 +74,8 @@ public class DungeonMenu extends AppCompatActivity {
         attackButton = findViewById(R.id.attackBttn);
         continueButton = findViewById(R.id.continueBttn);
         potionButton = findViewById(R.id.potionBttn);
+        resetButton = findViewById(R.id.resetButton);
+        resetButton.setVisibility(View.INVISIBLE);
         storyTxt = findViewById(R.id.storyTxt);
         levelUp = findViewById(R.id.levelUp);
         continueButton.setEnabled(false);
@@ -203,6 +205,8 @@ public class DungeonMenu extends AppCompatActivity {
         attackButton.setVisibility(View.INVISIBLE);
         potionButton.setVisibility(View.INVISIBLE);
         continueButton.setVisibility(View.INVISIBLE);
+        resetButton.setVisibility(View.VISIBLE);
+
     }
 
 
@@ -262,6 +266,7 @@ public class DungeonMenu extends AppCompatActivity {
                         " not underestimate you again, he will use more than 30% of his power next time. ");
                 continueButton.setVisibility(View.INVISIBLE);
                 continueButton.setEnabled(false);
+                resetButton.setVisibility(View.VISIBLE);
                 //dragon
                 break;
         }
@@ -319,5 +324,10 @@ public class DungeonMenu extends AppCompatActivity {
                 storyTxt.append("\n\nYou dodged the attack!");
             }
         }
+    }
+
+    public void onClick_Reset(View v){
+        Intent backToMain = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(backToMain);
     }
 }
