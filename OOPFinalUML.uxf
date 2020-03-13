@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>588</x>
-      <y>175</y>
+      <x>448</x>
+      <y>56</y>
       <w>357</w>
       <h>84</h>
     </coordinates>
@@ -20,10 +20,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>259</x>
-      <y>315</y>
+      <x>119</x>
+      <y>203</y>
       <w>357</w>
-      <h>287</h>
+      <h>455</h>
     </coordinates>
     <panel_attributes>DungeonMenu
 --
@@ -34,13 +34,19 @@
 - elfImg : GifImageView
 - humanImg : GifImageView
 - wolfImg : GifImageView
+- dragon : GifImageView
+- troll : GifImageView
+- ogre : GifImageView
+- orc : GifImageView
+- gnome : GifImageView
 - enemyHealth : TextView
 - characterStats : TextView
 - storyTxt : TextView
+- levelUP : TextView
 - attackButton : Button
 - continueButton : Button
 - potionButton : Button
-- enemyCounter : int
+- storyPlace : int
 - potions : int
 - player : Hero
 - enemy : Enemy
@@ -51,8 +57,10 @@
 + onClick_Potion(v : View) : void
 + onCLick_Continue(v : View) : void
 + checkLevelUP() : void
++ playerDeath() : void
 + enemyDeath() : void
 + displayStory : void
++ setStoryVisibility() : void
 + playerAttacks() : void
 + enemyAttacks() : void
 </panel_attributes>
@@ -61,10 +69,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>651</x>
-      <y>413</y>
+      <x>511</x>
+      <y>378</y>
       <w>245</w>
-      <h>133</h>
+      <h>154</h>
     </coordinates>
     <panel_attributes>CharacterMenu
 --
@@ -86,10 +94,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>791</y>
+      <x>490</x>
+      <y>756</y>
       <w>266</w>
-      <h>245</h>
+      <h>280</h>
     </coordinates>
     <panel_attributes>/RPGCharacter/
 &lt;&lt;abstract&gt;&gt;
@@ -97,7 +105,6 @@
 _# health : int_
 _# attackPower : int_
 _# level : int_
-_# hitNum : int_
 + rng : Random
 --
 + getHealth() : int
@@ -106,12 +113,9 @@ _# hitNum : int_
 + setAttackPower(attackPower : int) : void
 + get attackSpeed() : int
 + set attackSpeed(attackSpeed) : void
-+ getDefense() : int
-+ setDefense(defense : int) : void
 + getLevel() : int
 + setLevel(level : int) : void
-+ getHitNum() : int
-+ setHitNum(hitNum : int) : void
+
 
 + roll(quantity : int, sides : int) : int
 /+ attack(roll : int) : int &lt;&lt;abstract&gt;&gt;/
@@ -123,8 +127,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>777</x>
-      <y>1302</y>
+      <x>637</x>
+      <y>1267</y>
       <w>574</w>
       <h>147</h>
     </coordinates>
@@ -149,8 +153,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>175</x>
-      <y>1547</y>
+      <x>35</x>
+      <y>1512</y>
       <w>595</w>
       <h>112</h>
     </coordinates>
@@ -173,8 +177,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>175</x>
-      <y>1148</y>
+      <x>35</x>
+      <y>1113</y>
       <w>595</w>
       <h>126</h>
     </coordinates>
@@ -197,8 +201,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>777</x>
-      <y>1148</y>
+      <x>637</x>
+      <y>1113</y>
       <w>574</w>
       <h>147</h>
     </coordinates>
@@ -223,8 +227,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>777</x>
-      <y>1456</y>
+      <x>637</x>
+      <y>1421</y>
       <w>574</w>
       <h>147</h>
     </coordinates>
@@ -249,10 +253,10 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1106</x>
-      <y>973</y>
+      <x>966</x>
+      <y>903</y>
       <w>245</w>
-      <h>161</h>
+      <h>182</h>
     </coordinates>
     <panel_attributes>/Hero/
 &lt;&lt;abstract&gt;&gt;
@@ -277,19 +281,19 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>882</y>
+      <x>749</x>
+      <y>847</y>
       <w>252</w>
-      <h>105</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;340.0;10.0;340.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;340.0;10.0;340.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>882</y>
+      <x>238</x>
+      <y>847</y>
       <w>266</w>
       <h>147</h>
     </coordinates>
@@ -299,8 +303,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1344</x>
-      <y>1064</y>
+      <x>1204</x>
+      <y>994</y>
       <w>42</w>
       <h>21</h>
     </coordinates>
@@ -310,19 +314,19 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1365</x>
-      <y>1064</y>
+      <x>1225</x>
+      <y>994</y>
       <w>21</w>
-      <h>455</h>
+      <h>490</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;630.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;680.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1344</x>
-      <y>1491</y>
+      <x>1204</x>
+      <y>1456</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -332,8 +336,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1344</x>
-      <y>1337</y>
+      <x>1204</x>
+      <y>1302</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -343,8 +347,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1344</x>
-      <y>1183</y>
+      <x>1204</x>
+      <y>1148</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -354,8 +358,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>175</x>
-      <y>1281</y>
+      <x>35</x>
+      <y>1246</y>
       <w>595</w>
       <h>126</h>
     </coordinates>
@@ -378,8 +382,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>175</x>
-      <y>1414</y>
+      <x>35</x>
+      <y>1379</y>
       <w>595</w>
       <h>126</h>
     </coordinates>
@@ -402,8 +406,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>175</x>
-      <y>1666</y>
+      <x>35</x>
+      <y>1631</y>
       <w>721</w>
       <h>126</h>
     </coordinates>
@@ -426,8 +430,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>1043</y>
+      <x>7</x>
+      <y>1008</y>
       <w>21</w>
       <h>511</h>
     </coordinates>
@@ -437,8 +441,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>1575</y>
+      <x>7</x>
+      <y>1540</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -448,8 +452,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>1442</y>
+      <x>7</x>
+      <y>1407</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -459,8 +463,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>1309</y>
+      <x>7</x>
+      <y>1274</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -470,8 +474,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>1176</y>
+      <x>7</x>
+      <y>1141</y>
       <w>42</w>
       <h>28</h>
     </coordinates>
@@ -481,8 +485,8 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>1036</y>
+      <x>7</x>
+      <y>1001</y>
       <w>126</w>
       <h>28</h>
     </coordinates>
@@ -493,8 +497,8 @@ _# hitNum : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>259</x>
-      <y>1015</y>
+      <x>119</x>
+      <y>980</y>
       <w>315</w>
       <h>119</h>
     </coordinates>
@@ -502,16 +506,19 @@ _# hitNum : int_
 &lt;&lt;abstract&gt;&gt;
 --
 # experienceWorth : int
+# hiNum : int
 --
 + getExperienceWorth() : int
-+ setExperienceWorth(experienceWorth : int) : void</panel_attributes>
++ setExperienceWorth(experienceWorth : int) : void
++ getHitNum() : int
++ setHitNum(hitNum : int) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>1533</y>
+      <x>7</x>
+      <y>1498</y>
       <w>42</w>
       <h>203</h>
     </coordinates>
@@ -521,47 +528,137 @@ _# hitNum : int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>595</y>
-      <w>420</w>
-      <h>210</h>
+      <x>231</x>
+      <y>651</y>
+      <w>427</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 &lt;&lt;instance of&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0;580.0;50.0;580.0;280.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;590.0;90.0;590.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>777</x>
-      <y>252</y>
+      <x>637</x>
+      <y>133</y>
       <w>21</w>
-      <h>175</h>
+      <h>259</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;230.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;350.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>357</x>
-      <y>273</y>
+      <x>217</x>
+      <y>154</y>
       <w>441</w>
-      <h>56</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;instance of&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0;610.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0;610.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>777</x>
-      <y>539</y>
+      <x>637</x>
+      <y>525</y>
       <w>21</w>
-      <h>105</h>
+      <h>203</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>924</x>
+      <y>105</y>
+      <w>84</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>MVC Lengend
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>931</x>
+      <y>133</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Model
+group=1
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>931</x>
+      <y>161</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>View
+group=1
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>931</x>
+      <y>189</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Controller
+group=1
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>742</y>
+      <w>1267</w>
+      <h>1078</h>
+    </coordinates>
+    <panel_attributes>models
+--
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>56</x>
+      <y>0</y>
+      <w>812</w>
+      <h>714</h>
+    </coordinates>
+    <panel_attributes>View
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>112</x>
+      <y>42</y>
+      <w>756</w>
+      <h>672</h>
+    </coordinates>
+    <panel_attributes>Controller
+--
+bg=red</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
